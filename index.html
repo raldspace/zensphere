@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SereneMind - Professional Psychological Services</title>
+    <meta name="description" content="Find your path to mental wellness with SereneMind's professional psychological services. Remote and in-person therapy options available.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(143, 166, 142, 0.1) 0%, rgba(247, 245, 243, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('./resources/hero-therapy.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(143, 166, 142, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .quiz-container {
+            background: rgba(247, 245, 243, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #8FA68E 0%, #A8B5C4 100%);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="about.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="blog.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Blog</a>
+                        <a href="contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="blog.html" class="block px-3 py-2 text-charcoal hover:text-sage">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h1 class="text-5xl lg:text-6xl font-tiempos text-charcoal leading-tight">
+                        <span id="typed-text"></span>
+                        <span class="text-sage">Mental Wellness</span>
+                    </h1>
+                    <p class="text-xl text-charcoal/80 leading-relaxed">
+                        Professional psychological services offering both remote and in-person therapy. 
+                        Our evidence-based approach combines compassion with clinical expertise to help 
+                        you navigate life's challenges and find your path to healing.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium text-center">
+                            Start Your Journey
+                        </a>
+                        <button id="start-assessment" class="border-2 border-sage text-sage px-8 py-4 rounded-full text-lg font-medium hover:bg-sage hover:text-cream transition-all">
+                            Take Assessment
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="./resources/mindfulness.jpg" alt="Peaceful therapy setting" class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sage/20 to-transparent rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Type Selector -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Choose Your Path to Healing</h2>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    We offer both remote and in-person therapy options to meet your unique needs and preferences.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-center mb-12">
+                    <div class="bg-beige/50 rounded-full p-2 flex">
+                        <button id="remote-btn" class="service-toggle active px-8 py-3 rounded-full text-lg font-medium transition-all">
+                            Remote Therapy
+                        </button>
+                        <button id="inperson-btn" class="service-toggle px-8 py-3 rounded-full text-lg font-medium transition-all">
+                            In-Person Services
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="service-content" class="grid md:grid-cols-2 gap-8">
+                    <!-- Content will be dynamically updated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mental Health Assessment Quiz -->
+    <section class="py-20 bg-beige/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="quiz-container" class="quiz-container rounded-3xl p-8 shadow-2xl hidden">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-tiempos text-charcoal mb-4">Mental Wellness Assessment</h3>
+                    <p class="text-charcoal/70">This brief assessment can help identify areas where therapy might be beneficial.</p>
+                </div>
+                
+                <div class="mb-8">
+                    <div class="flex justify-between text-sm text-charcoal/60 mb-2">
+                        <span>Progress</span>
+                        <span id="quiz-progress">0/8</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progress-bar" class="progress-bar h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions" class="space-y-6">
+                    <!-- Questions will be dynamically loaded -->
+                </div>
+                
+                <div id="quiz-results" class="hidden text-center">
+                    <h4 class="text-2xl font-tiempos text-charcoal mb-6">Your Assessment Results</h4>
+                    <div id="results-content" class="space-y-4">
+                        <!-- Results will be displayed here -->
+                    </div>
+                    <div class="mt-8">
+                        <a href="contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium">
+                            Schedule Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose SereneMind -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Why Choose SereneMind</h2>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Our evidence-based approach combines professional expertise with genuine compassion.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-2xl bg-cream/50 hover:bg-sage/5 transition-all duration-300 fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-charcoal mb-4">Evidence-Based Care</h3>
+                    <p class="text-charcoal/70">We use scientifically-proven therapeutic approaches tailored to your unique needs and goals.</p>
+                </div>
+                
+                <div class="text-center p-8 rounded-2xl bg-cream/50 hover:bg-sage/5 transition-all duration-300 fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-charcoal mb-4">Flexible Scheduling</h3>
+                    <p class="text-charcoal/70">Choose from remote or in-person sessions with evening and weekend appointments available.</p>
+                </div>
+                
+                <div class="text-center p-8 rounded-2xl bg-cream/50 hover:bg-sage/5 transition-all duration-300 fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-charcoal mb-4">Compassionate Support</h3>
+                    <p class="text-charcoal/70">Our team provides a safe, non-judgmental space for you to explore your thoughts and feelings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-sage/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">What Our Clients Say</h2>
+                <p class="text-xl text-charcoal/70">Real stories from people who have found healing and growth through our services.</p>
+            </div>
+            
+            <div class="splide" id="testimonial-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <img src="./resources/client-avatar-1.jpg" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover">
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-charcoal">Maria Johnson</h4>
+                                        <p class="text-charcoal/60">Anxiety & Depression Treatment</p>
+                                    </div>
+                                </div>
+                                <p class="text-charcoal/80 text-lg italic mb-6">
+                                    "The remote therapy sessions have been life-changing. Dr. Chen's compassionate approach helped me develop coping strategies that I use every day. I finally feel like myself again."
+                                </p>
+                                <div class="flex text-gold">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <img src="./resources/client-avatar-2.jpg" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover">
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-charcoal">David Kim</h4>
+                                        <p class="text-charcoal/60">Couples Therapy</p>
+                                    </div>
+                                </div>
+                                <p class="text-charcoal/80 text-lg italic mb-6">
+                                    "Dr. Rodriguez helped my partner and I rebuild our communication. The in-person sessions created such a safe space for us to be vulnerable and honest. Our relationship is stronger than ever."
+                                </p>
+                                <div class="flex text-gold">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
+                                <div class="flex items-center mb-6">
+                                    <img src="./resources/client-avatar-3.jpg" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover">
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-charcoal">Carmen Rodriguez</h4>
+                                        <p class="text-charcoal/60">Trauma Recovery</p>
+                                    </div>
+                                </div>
+                                <p class="text-charcoal/80 text-lg italic mb-6">
+                                    "Dr. Kowalski's expertise in trauma therapy changed my life. Her gentle approach to EMDR helped me process experiences I never thought I could face. I feel free for the first time in years."
+                                </p>
+                                <div class="flex text-gold">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-4xl font-tiempos text-sage mb-2">15+</div>
+                    <div class="text-charcoal/70">Years Experience</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl font-tiempos text-sage mb-2">2,500+</div>
+                    <div class="text-charcoal/70">Clients Helped</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl font-tiempos text-sage mb-2">95%</div>
+                    <div class="text-charcoal/70">Client Satisfaction</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl font-tiempos text-sage mb-2">24/7</div>
+                    <div class="text-charcoal/70">Crisis Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="about.html" class="hover:text-sage transition-colors">Our Team</a></li>
+                        <li><a href="contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-sage transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

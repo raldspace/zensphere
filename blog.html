@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SereneMind Psychological Services</title>
+    <meta name="description" content="Expert insights on mental health, therapy approaches, and wellness strategies from the SereneMind team.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .blog-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(143, 166, 142, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        .category-tag {
+            background: rgba(143, 166, 142, 0.1);
+            color: #2C3E50;
+            border: 1px solid rgba(143, 166, 142, 0.2);
+        }
+        .search-input {
+            transition: all 0.2s ease;
+        }
+        .search-input:focus {
+            border-color: #8FA68E;
+            box-shadow: 0 0 0 3px rgba(143, 166, 142, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="about.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="blog.html" class="text-sage px-3 py-2 text-sm font-medium border-b-2 border-sage">Blog</a>
+                        <a href="contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="blog.html" class="block px-3 py-2 text-sage font-medium">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-sage/10 to-cream/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-tiempos text-charcoal mb-6">Mental Health Blog</h1>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Expert insights, practical strategies, and evidence-based information to support 
+                    your mental wellness journey from our team of licensed professionals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Search and Filter -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8 items-center justify-between">
+                <!-- Search -->
+                <div class="relative flex-1 max-w-md">
+                    <input type="text" id="blog-search" placeholder="Search articles..." class="search-input w-full px-4 py-3 pl-12 border-2 border-sage/20 rounded-xl focus:outline-none">
+                    <svg class="w-5 h-5 text-sage/60 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                
+                <!-- Categories -->
+                <div class="flex flex-wrap gap-3">
+                    <button class="category-filter active px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="all">
+                        All Posts
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="anxiety">
+                        Anxiety
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="depression">
+                        Depression
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="therapy">
+                        Therapy
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="wellness">
+                        Wellness
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-full border-2 border-sage/20 text-sm font-medium transition-all" data-category="relationships">
+                        Relationships
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-16 bg-beige/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-tiempos text-charcoal mb-4">Featured Article</h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden fade-in">
+                <div class="grid lg:grid-cols-2 gap-0">
+                    <div class="relative h-64 lg:h-auto">
+                        <img src="./resources/mindfulness.jpg" alt="Understanding Anxiety" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent"></div>
+                    </div>
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Anxiety</span>
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Therapy</span>
+                        </div>
+                        <h3 class="text-2xl lg:text-3xl font-tiempos text-charcoal mb-4">
+                            <a href="blog/understanding-anxiety.html" class="hover:text-sage transition-colors">
+                                Understanding Anxiety: When Worry Becomes Overwhelming
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-6 leading-relaxed">
+                            Anxiety affects millions of people worldwide, but understanding its mechanisms and learning 
+                            effective coping strategies can transform your relationship with worry. Learn about the 
+                            latest evidence-based approaches to managing anxiety disorders.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-10 h-10 rounded-full object-cover mr-3">
+                                <div>
+                                    <p class="font-medium text-charcoal text-sm">Dr. Sarah Chen</p>
+                                    <p class="text-charcoal/60 text-xs">December 19, 2025</p>
+                                </div>
+                            </div>
+                            <a href="blog/understanding-anxiety.html" class="text-sage hover:text-sage/80 font-medium text-sm">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Latest Articles</h2>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Stay informed with the latest insights from our mental health professionals.
+                </p>
+            </div>
+            
+            <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="depression therapy">
+                    <div class="relative h-48">
+                        <img src="./resources/therapy-room.jpg" alt="Depression Therapy" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Depression</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/depression-therapy-approaches.html" class="hover:text-sage transition-colors">
+                                Modern Approaches to Depression Treatment
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            Explore evidence-based therapies for depression, including CBT, DBT, and mindfulness-based 
+                            approaches that are helping people find relief and recovery.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Elena Kowalski</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 15, 2025</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="wellness">
+                    <div class="relative h-48">
+                        <img src="./resources/wellness-center.jpg" alt="Mindfulness Practices" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Wellness</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/mindfulness-daily-practice.html" class="hover:text-sage transition-colors">
+                                Building a Sustainable Mindfulness Practice
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            Learn practical techniques for incorporating mindfulness into your daily routine, 
+                            even with a busy schedule. Small changes can lead to significant improvements.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Sarah Chen</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 12, 2025</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="relationships">
+                    <div class="relative h-48">
+                        <img src="./resources/counseling-room.jpg" alt="Couples Therapy" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Relationships</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/communication-couples.html" class="hover:text-sage transition-colors">
+                                Effective Communication in Relationships
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            Discover evidence-based communication strategies that can transform your relationships, 
+                            resolve conflicts, and deepen emotional connections with your partner.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-michael.jpg" alt="Dr. Michael Rodriguez" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Michael Rodriguez</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 10, 2025</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 4 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="therapy">
+                    <div class="relative h-48">
+                        <img src="./resources/remote-session.jpg" alt="EMDR Therapy" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Therapy</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/emdr-trauma-therapy.html" class="hover:text-sage transition-colors">
+                                How EMDR Helps Process Traumatic Memories
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            EMDR therapy is revolutionizing trauma treatment. Learn how this evidence-based approach 
+                            helps the brain reprocess traumatic memories and reduce their emotional impact.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Elena Kowalski</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 8, 2025</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 5 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="anxiety wellness">
+                    <div class="relative h-48">
+                        <img src="./resources/mindfulness.jpg" alt="Stress Management" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Anxiety</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/stress-management-techniques.html" class="hover:text-sage transition-colors">
+                                5 Evidence-Based Stress Management Techniques
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            Discover practical, scientifically-backed strategies for managing stress and anxiety 
+                            in your daily life. These techniques can be implemented immediately.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Sarah Chen</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 5, 2025</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 6 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="therapy depression">
+                    <div class="relative h-48">
+                        <img src="./resources/therapy-room.jpg" alt="DBT Skills" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-tag px-3 py-1 rounded-full text-xs font-medium">Therapy</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-tiempos text-charcoal mb-3">
+                            <a href="blog/dbt-emotional-regulation.html" class="hover:text-sage transition-colors">
+                                DBT Skills for Emotional Regulation
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 mb-4 text-sm leading-relaxed">
+                            Dialectical Behavior Therapy offers powerful tools for managing intense emotions. 
+                            Learn key DBT skills that can help you navigate emotional challenges effectively.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="./resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-8 h-8 rounded-full object-cover mr-2">
+                                <span class="text-xs text-charcoal/60">Dr. Elena Kowalski</span>
+                            </div>
+                            <span class="text-xs text-charcoal/60">Dec 3, 2025</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12 fade-in">
+                <button id="load-more" class="btn-primary text-cream px-8 py-3 rounded-full text-lg font-medium">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20 bg-sage/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Stay Informed</h2>
+                <p class="text-xl text-charcoal/70 mb-8">
+                    Subscribe to our newsletter for the latest mental health insights, therapy tips, and wellness strategies 
+                    delivered directly to your inbox.
+                </p>
+                
+                <form id="newsletter-form" class="max-w-md mx-auto">
+                    <div class="flex gap-4">
+                        <input type="email" name="email" placeholder="Enter your email address" required class="search-input flex-1 px-4 py-3 border-2 border-sage/20 rounded-xl focus:outline-none">
+                        <button type="submit" class="btn-primary text-cream px-6 py-3 rounded-xl font-medium">
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="text-sm text-charcoal/60 mt-3">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="index.html" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="about.html" class="hover:text-sage transition-colors">About</a></li>
+                        <li><a href="contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

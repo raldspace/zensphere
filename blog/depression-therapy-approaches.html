@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Approaches to Depression Treatment - SereneMind</title>
+    <meta name="description" content="Explore evidence-based therapies for depression including CBT, DBT, and mindfulness approaches from Dr. Elena Kowalski.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        .prose h2 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            color: #2C3E50;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .prose ul, .prose ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #8FA68E;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #2C3E50;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="../services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="../about.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="../blog.html" class="text-sage px-3 py-2 text-sm font-medium border-b-2 border-sage">Blog</a>
+                        <a href="../contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="../contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="../services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="../about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="../blog.html" class="block px-3 py-2 text-sage font-medium">Blog</a>
+                <a href="../contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="../contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-sage/10 to-cream/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex flex-wrap gap-2 justify-center mb-6">
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Depression</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Therapy</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Treatment</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-tiempos text-charcoal mb-6 leading-tight">
+                    Modern Approaches to Depression Treatment
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-charcoal/60 mb-8">
+                    <div class="flex items-center">
+                        <img src="../resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-8 h-8 rounded-full object-cover mr-2">
+                        <span class="text-sm">Dr. Elena Kowalski</span>
+                    </div>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">December 15, 2025</span>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">10 min read</span>
+                </div>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">
+                    Explore evidence-based therapies for depression, including CBT, DBT, and mindfulness-based 
+                    approaches that are helping people find relief and recovery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 bg-sage/5 rounded-xl p-6">
+                        <h3 class="font-semibold text-charcoal mb-4">Table of Contents</h3>
+                        <nav class="space-y-2">
+                            <a href="#understanding-depression" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Understanding Depression</a>
+                            <a href="#cbt-approach" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Cognitive Behavioral Therapy</a>
+                            <a href="#dbt-approach" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Dialectical Behavior Therapy</a>
+                            <a href="#mindfulness-approaches" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Mindfulness-Based Approaches</a>
+                            <a href="#other-therapies" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Other Therapeutic Approaches</a>
+                            <a href="#choosing-treatment" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Choosing the Right Treatment</a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="lg:col-span-3">
+                    <article class="prose max-w-none">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-8">
+                            <img src="../resources/therapy-room.jpg" alt="Depression Therapy" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent"></div>
+                        </div>
+                        
+                        <section id="understanding-depression">
+                            <h2>Understanding Depression in the Modern Context</h2>
+                            <p>
+                                Depression is more than just feeling sad or going through a rough patch. It's a serious mental 
+                                health condition that affects how people think, feel, and function in daily life. According to 
+                                the World Health Organization, depression is the leading cause of disability worldwide, affecting 
+                                more than 264 million people of all ages.
+                            </p>
+                            <p>
+                                The good news is that depression is highly treatable. Modern therapeutic approaches have evolved 
+                                significantly, offering hope and healing to those who struggle with this challenging condition. 
+                                Today's treatments are more personalized, evidence-based, and effective than ever before.
+                            </p>
+                            <blockquote>
+                                "Depression is not a sign of weakness or a character flaw. It's a medical condition that responds 
+                                well to treatment, and recovery is possible with the right support and interventions."
+                            </blockquote>
+                        </section>
+                        
+                        <section id="cbt-approach">
+                            <h2>Cognitive Behavioral Therapy: Changing Thoughts and Behaviors</h2>
+                            <p>
+                                Cognitive Behavioral Therapy (CBT) remains one of the most effective and widely researched 
+                                treatments for depression. This approach is based on the understanding that our thoughts, 
+                                feelings, and behaviors are interconnected, and that changing negative thought patterns can 
+                                lead to improvements in mood and functioning.
+                            </p>
+                            
+                            <h3>Core Principles of CBT</h3>
+                            <p>
+                                CBT operates on several key principles that make it particularly effective for depression:
+                            </p>
+                            <ul>
+                                <li><strong>Thought-Emotion Connection:</strong> Our thoughts directly influence our emotions and behaviors</li>
+                                <li><strong>Identifying Cognitive Distortions:</strong> Recognizing and challenging unhelpful thinking patterns</li>
+                                <li><strong>Behavioral Activation:</strong> Increasing engagement in meaningful activities</li>
+                                <li><strong>Skill Building:</strong> Learning practical coping strategies and problem-solving techniques</li>
+                            </ul>
+                            
+                            <h3>CBT Techniques for Depression</h3>
+                            <p>
+                                Several specific CBT techniques have proven particularly effective for depression:
+                            </p>
+                            <ul>
+                                <li><strong>Thought Records:</strong> Tracking and examining negative thoughts</li>
+                                <li><strong>Activity Scheduling:</strong> Planning pleasant and meaningful activities</li>
+                                <li><strong>Graded Task Assignment:</strong> Breaking overwhelming tasks into manageable steps</li>
+                                <li><strong>Behavioral Experiments:</strong> Testing beliefs through real-world experiences</li>
+                                <li><strong>Relapse Prevention:</strong> Developing strategies to maintain improvements</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="dbt-approach">
+                            <h2>Dialectical Behavior Therapy: Emotion Regulation and Acceptance</h2>
+                            <p>
+                                Originally developed for borderline personality disorder, Dialectical Behavior Therapy (DBT) 
+                                has proven highly effective for depression, particularly when emotional regulation is a key 
+                                concern. DBT combines acceptance and change strategies to help individuals build a life worth living.
+                            </p>
+                            
+                            <h3>The Four DBT Skills Modules</h3>
+                            <p>
+                                DBT teaches four core skill sets that address different aspects of emotional and behavioral regulation:
+                            </p>
+                            
+                            <h4>Mindfulness</h4>
+                            <p>
+                                Mindfulness skills form the foundation of DBT, teaching individuals to observe, describe, and 
+                                participate in the present moment without judgment. These skills help develop awareness of 
+                                thoughts, emotions, and sensations.
+                            </p>
+                            
+                            <h4>Distress Tolerance</h4>
+                            <p>
+                                These skills help individuals survive crisis situations without making things worse. Techniques 
+                                include self-soothing, distraction, and radical acceptance of difficult situations.
+                            </p>
+                            
+                            <h4>Emotion Regulation</h4>
+                            <p>
+                                Emotion regulation skills help individuals understand and manage their emotions more effectively. 
+                                This includes identifying emotions, understanding their function, and learning to change unwanted 
+                                emotional responses.
+                            </p>
+                            
+                            <h4>Interpersonal Effectiveness</h4>
+                            <p>
+                                These skills focus on maintaining relationships and getting needs met in relationships while 
+                                maintaining self-respect. They include strategies for asking for what you want and setting boundaries.
+                            </p>
+                        </section>
+                        
+                        <section id="mindfulness-approaches">
+                            <h2>Mindfulness-Based Approaches: Present-Moment Awareness</h2>
+                            <p>
+                                Mindfulness-based interventions have gained significant attention in recent years for their 
+                                effectiveness in treating depression. These approaches help individuals develop a different 
+                                relationship with their thoughts and emotions, reducing their impact and power.
+                            </p>
+                            
+                            <h3>Mindfulness-Based Cognitive Therapy (MBCT)</h3>
+                            <p>
+                                MBCT combines elements of CBT with mindfulness meditation practices. This approach is particularly 
+                                effective for preventing relapse in individuals with recurrent depression. MBCT teaches individuals 
+                                to observe their thoughts and feelings without judgment, reducing the tendency to get caught in 
+                                cycles of negative thinking.
+                            </p>
+                            
+                            <h3>Mindfulness-Based Stress Reduction (MBSR)</h3>
+                            <p>
+                                MBSR is an 8-week program that teaches mindfulness meditation and gentle yoga. While originally 
+                                developed for stress management, it has proven effective for depression as well. The program helps 
+                                individuals develop greater awareness and acceptance of their experiences.
+                            </p>
+                            
+                            <h3>Benefits of Mindfulness for Depression</h3>
+                            <ul>
+                                <li>Reduced rumination and negative thought patterns</li>
+                                <li>Improved emotional regulation</li>
+                                <li>Increased self-awareness and self-compassion</li>
+                                <li>Enhanced ability to tolerate difficult emotions</li>
+                                <li>Improved focus and concentration</li>
+                                <li>Better stress management skills</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="other-therapies">
+                            <h2>Other Evidence-Based Therapeutic Approaches</h2>
+                            <p>
+                                Beyond CBT, DBT, and mindfulness-based approaches, several other therapeutic modalities have 
+                                shown effectiveness in treating depression:
+                            </p>
+                            
+                            <h3>Interpersonal Therapy (IPT)</h3>
+                            <p>
+                                IPT focuses on improving interpersonal relationships and social functioning. This approach is 
+                                based on the understanding that depression often occurs in the context of relationships and 
+                                that improving these relationships can alleviate depressive symptoms.
+                            </p>
+                            
+                            <h3>Psychodynamic Therapy</h3>
+                            <p>
+                                Psychodynamic therapy explores unconscious patterns and past experiences that may contribute 
+                                to depression. This approach can be particularly helpful for individuals with chronic or 
+                                treatment-resistant depression.
+                            </p>
+                            
+                            <h3>Behavioral Activation</h3>
+                            <p>
+                                Behavioral activation focuses on helping individuals re-engage with meaningful activities and 
+                                relationships. This approach is particularly effective for depression characterized by social 
+                                withdrawal and loss of interest in previously enjoyed activities.
+                            </p>
+                            
+                            <h3>Acceptance and Commitment Therapy (ACT)</h3>
+                            <p>
+                                ACT helps individuals develop psychological flexibility by accepting difficult thoughts and 
+                                feelings while committing to valued actions. This approach can be particularly helpful for 
+                                individuals who struggle with chronic or recurring depression.
+                            </p>
+                        </section>
+                        
+                        <section id="choosing-treatment">
+                            <h2>Choosing the Right Treatment Approach</h2>
+                            <p>
+                                The most effective treatment for depression is often a combination of approaches tailored to 
+                                the individual's specific needs, preferences, and circumstances. Here are some factors to consider:
+                            </p>
+                            
+                            <h3>Assessment and Diagnosis</h3>
+                            <p>
+                                A thorough assessment by a qualified mental health professional is the first step in developing 
+                                an effective treatment plan. This assessment should consider the severity of symptoms, any 
+                                co-occurring conditions, and individual preferences and goals.
+                            </p>
+                            
+                            <h3>Treatment Planning</h3>
+                            <p>
+                                An effective treatment plan should be collaborative, involving both the individual and their 
+                                therapist in decision-making. The plan should be flexible enough to adapt to changing needs 
+                                and circumstances.
+                            </p>
+                            
+                            <h3>Combining Approaches</h3>
+                            <p>
+                                Many individuals benefit from combining different therapeutic approaches. For example, CBT 
+                                techniques might be combined with mindfulness practices, or DBT skills might be incorporated 
+                                into a broader treatment plan.
+                            </p>
+                            
+                            <h3>Medication Considerations</h3>
+                            <p>
+                                For some individuals, medication can be an important part of treatment. Antidepressants can 
+                                help regulate brain chemistry and reduce symptoms, making it easier to engage in therapy and 
+                                daily activities. The decision to use medication should be made in consultation with a qualified 
+                                healthcare provider.
+                            </p>
+                            
+                            <blockquote>
+                                "The key to successful depression treatment is finding the right combination of approaches 
+                                that work for each individual. What works best can vary significantly from person to person, 
+                                and treatment should be tailored accordingly."
+                            </blockquote>
+                            
+                            <p>
+                                Recovery from depression is possible with the right support and treatment. Modern therapeutic 
+                                approaches offer hope and healing to those who struggle with this challenging condition. If 
+                                you or someone you know is experiencing depression, know that help is available and that 
+                                treatment can make a significant difference in quality of life.
+                            </p>
+                        </section>
+                    </article>
+                    
+                    <!-- Author Bio -->
+                    <div class="bg-sage/5 rounded-2xl p-8 mt-12">
+                        <div class="flex items-start space-x-4">
+                            <img src="../resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="text-lg font-semibold text-charcoal mb-2">Dr. Elena Kowalski, PsyD</h3>
+                                <p class="text-charcoal/70 text-sm leading-relaxed mb-3">
+                                    Dr. Kowalski is a licensed clinical psychologist specializing in depression, trauma, and 
+                                    dialectical behavior therapy. She has over 10 years of experience helping individuals develop 
+                                    effective coping strategies and build emotional resilience.
+                                </p>
+                                <a href="../contact.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                                    Schedule a consultation with Dr. Kowalski →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-20 bg-beige/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-tiempos text-charcoal mb-4">Related Articles</h2>
+                <p class="text-xl text-charcoal/70">More insights on depression and mental wellness</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/mindfulness.jpg" alt="DBT Skills" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="dbt-emotional-regulation.html" class="hover:text-sage transition-colors">
+                                DBT Skills for Emotional Regulation
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Learn powerful DBT techniques for managing intense emotions and building resilience.
+                        </p>
+                        <a href="dbt-emotional-regulation.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/therapy-room.jpg" alt="CBT Techniques" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="cbt-negative-thoughts.html" class="hover:text-sage transition-colors">
+                                Challenging Negative Thoughts with CBT
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Discover practical CBT techniques for identifying and changing depressive thought patterns.
+                        </p>
+                        <a href="cbt-negative-thoughts.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/wellness-center.jpg" alt="Wellness Strategies" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="holistic-depression-treatment.html" class="hover:text-sage transition-colors">
+                                Holistic Approaches to Mental Wellness
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Explore integrative approaches that combine therapy with lifestyle modifications.
+                        </p>
+                        <a href="holistic-depression-treatment.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Ready to Start Your Healing Journey?</h2>
+                <p class="text-xl text-charcoal/70 mb-8">
+                    If depression is affecting your quality of life, professional support can help you develop 
+                    effective coping strategies and find relief. Our experienced therapists are here to support you.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium">
+                        Schedule Consultation
+                    </a>
+                    <a href="../services.html" class="border-2 border-sage text-sage px-8 py-4 rounded-full text-lg font-medium hover:bg-sage hover:text-cream transition-all">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="../index.html" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="../services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="../about.html" class="hover:text-sage transition-colors">About</a></li>
+                        <li><a href="../contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../main.js"></script>
+</body>
+</html>

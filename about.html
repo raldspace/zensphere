@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Team - SereneMind Psychological Services</title>
+    <meta name="description" content="Meet our experienced team of licensed therapists and psychologists. Professional credentials, compassionate care, evidence-based approaches.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .team-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .team-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(143, 166, 142, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background: #8FA68E;
+            color: #F7F5F3;
+        }
+        .specialization-tag {
+            background: rgba(143, 166, 142, 0.1);
+            color: #2C3E50;
+            border: 1px solid rgba(143, 166, 142, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="about.html" class="text-sage px-3 py-2 text-sm font-medium border-b-2 border-sage">About</a>
+                        <a href="contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="about.html" class="block px-3 py-2 text-sage font-medium">About</a>
+                <a href="blog.html" class="block px-3 py-2 text-charcoal hover:text-sage">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-sage/10 to-cream/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-tiempos text-charcoal mb-6">Meet Our Team</h1>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Our experienced team of licensed therapists and psychologists is dedicated to providing 
+                    compassionate, evidence-based care tailored to your unique needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Philosophy -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Our Philosophy</h2>
+                <p class="text-xl text-charcoal/70 mb-8">
+                    At SereneMind, we believe that healing happens within the context of relationship. 
+                    Our approach is grounded in evidence-based practices while honoring the unique story 
+                    and strengths of each individual we serve.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-charcoal mb-2">Evidence-Based Care</h3>
+                        <p class="text-charcoal/70 text-sm">We use scientifically-proven therapeutic approaches</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-charcoal mb-2">Compassionate Connection</h3>
+                        <p class="text-charcoal/70 text-sm">Building authentic therapeutic relationships</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-charcoal mb-2">Strength-Based Approach</h3>
+                        <p class="text-charcoal/70 text-sm">Focusing on your inherent resilience and capabilities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Filter -->
+    <section class="py-12 bg-beige/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-sage/20 text-charcoal font-medium" data-filter="all">
+                    All Therapists
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage/20 text-charcoal font-medium" data-filter="anxiety">
+                    Anxiety Specialists
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage/20 text-charcoal font-medium" data-filter="trauma">
+                    Trauma Specialists
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage/20 text-charcoal font-medium" data-filter="couples">
+                    Couples Therapists
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Profiles -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Dr. Sarah Chen -->
+                <div class="team-card bg-sage/5 rounded-2xl p-8 text-center" data-category="anxiety trauma">
+                    <div class="relative mb-6">
+                        <img src="./resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg">
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-sage rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-tiempos text-charcoal mb-2">Dr. Sarah Chen</h3>
+                    <p class="text-sage font-medium mb-4">Clinical Director, PhD</p>
+                    <p class="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                        Dr. Chen brings over 15 years of clinical experience in treating anxiety, depression, and trauma. 
+                        She specializes in CBT and mindfulness-based approaches, helping clients develop practical 
+                        coping strategies and build resilience.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Anxiety Disorders</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Depression</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">CBT</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Mindfulness</span>
+                    </div>
+                    <div class="text-left space-y-3 mb-6">
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Education</h4>
+                            <p class="text-charcoal/60 text-xs">PhD in Clinical Psychology, Stanford University</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Experience</h4>
+                            <p class="text-charcoal/60 text-xs">15+ years in private practice and clinical settings</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Approach</h4>
+                            <p class="text-charcoal/60 text-xs">Collaborative, goal-oriented, strength-based</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-primary text-cream px-6 py-3 rounded-full text-sm font-medium w-full">
+                        Book with Dr. Chen
+                    </a>
+                </div>
+                
+                <!-- Dr. Michael Rodriguez -->
+                <div class="team-card bg-sage/5 rounded-2xl p-8 text-center" data-category="couples trauma">
+                    <div class="relative mb-6">
+                        <img src="./resources/team-dr-michael.jpg" alt="Dr. Michael Rodriguez" class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg">
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-sage rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-tiempos text-charcoal mb-2">Dr. Michael Rodriguez</h3>
+                    <p class="text-sage font-medium mb-4">Senior Therapist, LMFT</p>
+                    <p class="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                        Dr. Rodriguez specializes in couples and family therapy, with extensive training in EMDR for trauma recovery. 
+                        His warm, direct approach helps couples rebuild trust and families improve communication patterns.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Couples Therapy</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Family Systems</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">EMDR</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Trauma</span>
+                    </div>
+                    <div class="text-left space-y-3 mb-6">
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Education</h4>
+                            <p class="text-charcoal/60 text-xs">LMFT, University of California, Los Angeles</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Experience</h4>
+                            <p class="text-charcoal/60 text-xs">12+ years specializing in relationships and trauma</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Approach</h4>
+                            <p class="text-charcoal/60 text-xs">Systemic, attachment-focused, emotionally attuned</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-primary text-cream px-6 py-3 rounded-full text-sm font-medium w-full">
+                        Book with Dr. Rodriguez
+                    </a>
+                </div>
+                
+                <!-- Dr. Elena Kowalski -->
+                <div class="team-card bg-sage/5 rounded-2xl p-8 text-center" data-category="trauma anxiety">
+                    <div class="relative mb-6">
+                        <img src="./resources/team-dr-elena.jpg" alt="Dr. Elena Kowalski" class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg">
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-sage rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-tiempos text-charcoal mb-2">Dr. Elena Kowalski</h3>
+                    <p class="text-sage font-medium mb-4">Trauma Specialist, PsyD</p>
+                    <p class="text-charcoal/70 mb-6 text-sm leading-relaxed">
+                        Dr. Kowalski is a trauma specialist with expertise in DBT and complex trauma treatment. 
+                        She creates a safe, nurturing environment for clients to process difficult experiences and develop healthy coping mechanisms.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Complex Trauma</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">DBT</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">PTSD</span>
+                        <span class="specialization-tag px-3 py-1 rounded-full text-xs font-medium">Dissociation</span>
+                    </div>
+                    <div class="text-left space-y-3 mb-6">
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Education</h4>
+                            <p class="text-charcoal/60 text-xs">PsyD in Clinical Psychology, Northwestern University</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Experience</h4>
+                            <p class="text-charcoal/60 text-xs">10+ years in trauma treatment and crisis intervention</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-charcoal text-sm mb-1">Approach</h4>
+                            <p class="text-charcoal/60 text-xs">Trauma-informed, compassionate, skill-building focus</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-primary text-cream px-6 py-3 rounded-full text-sm font-medium w-full">
+                        Book with Dr. Kowalski
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials & Certifications -->
+    <section class="py-20 bg-sage/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Professional Credentials</h2>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Our team maintains the highest standards of professional education, licensing, and ongoing training.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center fade-in">
+                    <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal mb-2">Licensed Professionals</h3>
+                    <p class="text-charcoal/70 text-sm">All therapists are licensed in their respective fields</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center fade-in">
+                    <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal mb-2">Advanced Training</h3>
+                    <p class="text-charcoal/70 text-sm">Specialized certifications in evidence-based treatments</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center fade-in">
+                    <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal mb-2">Continuing Education</h3>
+                    <p class="text-charcoal/70 text-sm">Ongoing training in latest therapeutic techniques</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center fade-in">
+                    <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal mb-2">Professional Affiliations</h3>
+                    <p class="text-charcoal/70 text-sm">Members of APA and local psychology associations</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto fade-in">
+                <h3 class="text-2xl font-tiempos text-charcoal mb-6 text-center">Professional Memberships</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-charcoal mb-4">National Organizations</h4>
+                        <div class="space-y-2 text-charcoal/70">
+                            <p>• American Psychological Association (APA)</p>
+                            <p>• Association for Behavioral and Cognitive Therapies (ABCT)</p>
+                            <p>• International Society for Traumatic Stress Studies (ISTSS)</p>
+                            <p>• American Association for Marriage and Family Therapy (AAMFT)</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-charcoal mb-4">State & Local</h4>
+                        <div class="space-y-2 text-charcoal/70">
+                            <p>• California Psychological Association (CPA)</p>
+                            <p>• San Francisco Psychological Association</p>
+                            <p>• California Association of Marriage and Family Therapists</p>
+                            <p>• Bay Area Trauma Professionals Network</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Environment -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Our Healing Environment</h2>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+                    Our office spaces are designed to provide a comfortable, safe, and welcoming environment 
+                    for your therapeutic journey.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-charcoal mb-3">Comfortable Therapy Rooms</h3>
+                        <p class="text-charcoal/70">
+                            Each therapy room is thoughtfully designed with comfortable seating, natural lighting, 
+                            and calming decor to create a safe space for healing and growth.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-charcoal mb-3">Private Waiting Areas</h3>
+                        <p class="text-charcoal/70">
+                            Our waiting areas provide a quiet, comfortable space to prepare for your session 
+                            with complete privacy and discretion.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-charcoal mb-3">Accessibility Features</h3>
+                        <p class="text-charcoal/70">
+                            Our facilities are fully accessible with elevator access, accessible restrooms, 
+                            and accommodations for individuals with disabilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="./resources/counseling-room.jpg" alt="Therapy office interior" class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sage/20 to-transparent rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-charcoal text-cream">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-tiempos mb-6">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-cream/80 mb-8">
+                Our team is here to support you every step of the way. Schedule a consultation to find 
+                the therapist who's the right fit for your unique needs and goals.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium">
+                    Schedule Consultation
+                </a>
+                <a href="services.html" class="border-2 border-sage text-sage px-8 py-4 rounded-full text-lg font-medium hover:bg-sage hover:text-cream transition-all">
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="./resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="index.html" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-sage transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Sustainable Mindfulness Practice - SereneMind</title>
+    <meta name="description" content="Learn practical techniques for incorporating mindfulness into your daily routine with Dr. Sarah Chen's evidence-based approach.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        .prose h2 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            color: #2C3E50;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .prose ul, .prose ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #8FA68E;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #2C3E50;
+            margin: 1.5rem 0;
+        }
+        .mindfulness-card {
+            transition: all 0.3s ease;
+        }
+        .mindfulness-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(143, 166, 142, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="../services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="../about.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="../blog.html" class="text-sage px-3 py-2 text-sm font-medium border-b-2 border-sage">Blog</a>
+                        <a href="../contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="../contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="../services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="../about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="../blog.html" class="block px-3 py-2 text-sage font-medium">Blog</a>
+                <a href="../contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="../contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-sage/10 to-cream/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex flex-wrap gap-2 justify-center mb-6">
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Wellness</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Mindfulness</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Mental Health</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-tiempos text-charcoal mb-6 leading-tight">
+                    Building a Sustainable Mindfulness Practice
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-charcoal/60 mb-8">
+                    <div class="flex items-center">
+                        <img src="../resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-8 h-8 rounded-full object-cover mr-2">
+                        <span class="text-sm">Dr. Sarah Chen</span>
+                    </div>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">December 12, 2025</span>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">7 min read</span>
+                </div>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">
+                    Learn practical techniques for incorporating mindfulness into your daily routine, 
+                    even with a busy schedule. Small changes can lead to significant improvements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 bg-sage/5 rounded-xl p-6">
+                        <h3 class="font-semibold text-charcoal mb-4">Table of Contents</h3>
+                        <nav class="space-y-2">
+                            <a href="#what-is-mindfulness" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">What is Mindfulness?</a>
+                            <a href="#benefits" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Benefits of Practice</a>
+                            <a href="#getting-started" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Getting Started</a>
+                            <a href="#daily-practices" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Daily Practices</a>
+                            <a href="#overcoming-obstacles" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Overcoming Obstacles</a>
+                            <a href="#advanced-practices" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Advanced Techniques</a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="lg:col-span-3">
+                    <article class="prose max-w-none">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-8">
+                            <img src="../resources/wellness-center.jpg" alt="Mindfulness Practice" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent"></div>
+                        </div>
+                        
+                        <section id="what-is-mindfulness">
+                            <h2>What is Mindfulness?</h2>
+                            <p>
+                                Mindfulness is the practice of paying attention to the present moment with openness, curiosity, 
+                                and without judgment. It's about being fully aware of what's happening right now—your thoughts, 
+                                emotions, physical sensations, and surrounding environment—without trying to change or fix anything.
+                            </p>
+                            <p>
+                                While mindfulness has roots in ancient contemplative traditions, modern science has validated 
+                                its effectiveness for improving mental health, reducing stress, and enhancing overall well-being. 
+                                Research shows that regular mindfulness practice can literally rewire the brain, strengthening 
+                                areas associated with emotional regulation and executive function.
+                            </p>
+                            <blockquote>
+                                "Mindfulness is not about emptying your mind or achieving a state of eternal calm. It's about 
+                                developing a different relationship with your experiences—one characterized by awareness and acceptance."
+                            </blockquote>
+                        </section>
+                        
+                        <section id="benefits">
+                            <h2>The Science-Backed Benefits of Mindfulness</h2>
+                            <p>
+                                Hundreds of studies have documented the benefits of mindfulness practice. Here are some of the 
+                                most well-established benefits for mental health and well-being:
+                            </p>
+                            
+                            <h3>Reduced Stress and Anxiety</h3>
+                            <p>
+                                Mindfulness practice has been shown to significantly reduce stress and anxiety levels. By training 
+                                the mind to stay present, we become less caught up in worries about the future or regrets about 
+                                the past. This can lead to a profound sense of calm and emotional balance.
+                            </p>
+                            
+                            <h3>Improved Emotional Regulation</h3>
+                            <p>
+                                Regular mindfulness practice strengthens the prefrontal cortex, the brain region responsible for 
+                                executive functions like emotional regulation, decision-making, and impulse control. This can 
+                                help you respond to challenging situations with greater wisdom and composure.
+                            </p>
+                            
+                            <h3>Enhanced Focus and Concentration</h3>
+                            <p>
+                                Mindfulness training improves attention and concentration by strengthening the brain's attentional 
+                                networks. Many people report improved productivity and reduced mind-wandering after establishing 
+                                a regular practice.
+                            </p>
+                            
+                            <h3>Better Physical Health</h3>
+                            <ul>
+                                <li>Reduced blood pressure and heart rate</li>
+                                <li>Improved immune function</li>
+                                <li>Better sleep quality</li>
+                                <li>Reduced chronic pain</li>
+                                <li>Lower inflammation levels</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="getting-started">
+                            <h2>Getting Started: The Basics of Mindfulness Practice</h2>
+                            <p>
+                                Starting a mindfulness practice doesn't require special equipment, extensive training, or hours 
+                                of free time. The key is to begin small and be consistent. Here are the fundamentals:
+                            </p>
+                            
+                            <h3>Start with Just 5 Minutes</h3>
+                            <p>
+                                Begin with short, manageable practice sessions. Even 5 minutes of daily mindfulness can make a 
+                                difference. As you become more comfortable, you can gradually increase the duration of your 
+                                sessions.
+                            </p>
+                            
+                            <h3>Find a Comfortable Position</h3>
+                            <p>
+                                You can practice mindfulness sitting, lying down, or even walking. The key is to find a position 
+                                that allows you to be both alert and relaxed. If you're sitting, try to maintain a straight but 
+                                not rigid posture.
+                            </p>
+                            
+                            <h3>Focus on the Breath</h3>
+                            <p>
+                                The breath is an excellent anchor for mindfulness practice because it's always available and 
+                                naturally rhythmic. Simply notice the sensation of breathing—feel the air entering and leaving 
+                                your body, notice the rise and fall of your chest or abdomen.
+                            </p>
+                            
+                            <h3>Notice When Your Mind Wanders</h3>
+                            <p>
+                                It's completely normal for your mind to wander during practice. When you notice this happening, 
+                                gently acknowledge where your mind went, and then guide your attention back to the breath. This 
+                                is the essence of mindfulness practice—noticing and returning.
+                            </p>
+                        </section>
+                        
+                        <section id="daily-practices">
+                            <h2>Integrating Mindfulness into Daily Life</h2>
+                            <p>
+                                While formal meditation practice is valuable, the real power of mindfulness comes from integrating 
+                                it into everyday activities. Here are some practical ways to bring mindfulness into your daily routine:
+                            </p>
+                            
+                            <h3>Mindful Morning Routine</h3>
+                            <p>
+                                Start your day with intention. Instead of immediately checking your phone or rushing through 
+                                your morning routine, take a few moments to notice your surroundings, feel your body waking up, 
+                                and set an intention for the day.
+                            </p>
+                            
+                            <h3>Mindful Eating</h3>
+                            <p>
+                                Transform meals into mindfulness practice by eating without distractions. Notice the colors, 
+                                textures, and flavors of your food. Pay attention to your body's hunger and satiety signals. 
+                                This practice can improve both digestion and satisfaction with meals.
+                            </p>
+                            
+                            <h3>Mindful Commuting</h3>
+                            <p>
+                                Whether you're driving, taking public transportation, or walking, your commute can become 
+                                a mindfulness practice. Notice your surroundings, feel the sensations of movement, and observe 
+                                your thoughts and emotions without judgment.
+                            </p>
+                            
+                            <h3>Mindful Communication</h3>
+                            <p>
+                                Practice mindful listening by giving your full attention to the person speaking. Notice your 
+                                urge to interrupt or plan your response, and instead focus on truly hearing and understanding 
+                                what the other person is saying.
+                            </p>
+                            
+                            <h3>Mindful Technology Use</h3>
+                            <p>
+                                Create mindful transitions when using technology. Before picking up your phone or opening your 
+                                laptop, take a moment to notice your intention. This simple pause can help prevent mindless 
+                                scrolling and promote more intentional technology use.
+                            </p>
+                        </section>
+                        
+                        <section id="overcoming-obstacles">
+                            <h2>Overcoming Common Obstacles</h2>
+                            <p>
+                                Establishing a mindfulness practice isn't always easy. Here are some common challenges and 
+                                strategies for addressing them:
+                            </p>
+                            
+                            <h3>"I Don't Have Time"</h3>
+                            <p>
+                                Remember that mindfulness doesn't require hours of practice. Start with just a few minutes each 
+                                day, and look for opportunities to practice informally throughout your day. Even mindful breathing 
+                                during a commercial break or while waiting in line counts.
+                            </p>
+                            
+                            <h3>"My Mind Won't Stop Racing"</h3>
+                            <p>
+                                A busy mind is normal, especially when starting out. The goal isn't to stop thoughts but to 
+                                notice them without getting carried away. Think of your thoughts like clouds passing in the 
+                                sky—you can observe them without becoming entangled in them.
+                            </p>
+                            
+                            <h3>"I Can't Seem to Focus"</h3>
+                            <p>
+                                Difficulty concentrating is common, especially if you're dealing with stress or anxiety. Be 
+                                patient with yourself and remember that noticing your mind has wandered is actually a moment 
+                                of mindfulness. Each time you return your attention to the present, you're strengthening your 
+                                mindfulness muscle.
+                            </p>
+                            
+                            <h3>"I Feel Restless or Uncomfortable"</h3>
+                            <p>
+                                Physical discomfort and restlessness are common experiences, especially in the beginning. Try 
+                                different positions, shorter sessions, or movement-based practices like walking meditation. 
+                                Remember that discomfort is part of the human experience and can be observed mindfully.
+                            </p>
+                        </section>
+                        
+                        <section id="advanced-practices">
+                            <h2>Advanced Practices for Deeper Mindfulness</h2>
+                            <p>
+                                Once you've established a basic mindfulness practice, you might want to explore more advanced 
+                                techniques to deepen your awareness and understanding:
+                            </p>
+                            
+                            <h3>Body Scan Meditation</h3>
+                            <p>
+                                This practice involves systematically bringing attention to different parts of the body, 
+                                noticing sensations without trying to change them. Body scan meditation can help develop 
+                                greater body awareness and release physical tension.
+                            </p>
+                            
+                            <h3>Loving-Kindness Meditation</h3>
+                            <p>
+                                Also known as metta meditation, this practice involves cultivating feelings of love and 
+                                kindness toward yourself and others. It can be particularly helpful for developing self-compassion 
+                                and reducing negative self-talk.
+                            </p>
+                            
+                            <h3>Open Awareness Meditation</h3>
+                            <p>
+                                Instead of focusing on a specific object like the breath, open awareness meditation involves 
+                                noticing whatever arises in your experience—thoughts, emotions, physical sensations—without 
+                                trying to control or change anything.
+                            </p>
+                            
+                            <h3>Mindful Movement</h3>
+                            <p>
+                                Practices like yoga, tai chi, or simply mindful walking can integrate mindfulness with physical 
+                                movement. These practices are particularly helpful for individuals who find sitting meditation 
+                                challenging or who want to bring mindfulness into their bodies.
+                            </p>
+                            
+                            <blockquote>
+                                "The goal of mindfulness is not to achieve a particular state but to develop a different relationship 
+                                with whatever arises in your experience. This shift in perspective can transform how you relate 
+                                to all aspects of your life."
+                            </blockquote>
+                            
+                            <p>
+                                Building a sustainable mindfulness practice is a journey, not a destination. There will be times 
+                                when your practice feels strong and other times when it feels challenging. The key is to approach 
+                                it with patience, kindness, and consistency. Remember that every moment of mindfulness, no matter 
+                                how brief, is a step toward greater well-being and inner peace.
+                            </p>
+                        </section>
+                    </article>
+                    
+                    <!-- Author Bio -->
+                    <div class="bg-sage/5 rounded-2xl p-8 mt-12">
+                        <div class="flex items-start space-x-4">
+                            <img src="../resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="text-lg font-semibold text-charcoal mb-2">Dr. Sarah Chen, PhD</h3>
+                                <p class="text-charcoal/70 text-sm leading-relaxed mb-3">
+                                    Dr. Chen is a licensed clinical psychologist with over 15 years of experience specializing 
+                                    in anxiety disorders and mindfulness-based interventions. She has extensive training in 
+                                    MBSR and MBCT and is passionate about helping individuals develop sustainable mindfulness 
+                                    practices for improved mental health.
+                                </p>
+                                <a href="../contact.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                                    Schedule a consultation with Dr. Chen →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mindfulness Exercises -->
+    <section class="py-20 bg-beige/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-tiempos text-charcoal mb-4">Try These Mindfulness Exercises</h2>
+                <p class="text-xl text-charcoal/70">Simple practices to get started with mindfulness today</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="mindfulness-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-tiempos text-charcoal mb-4 text-center">Three-Minute Breathing Space</h3>
+                    <p class="text-charcoal/70 text-center mb-6">
+                        A quick practice to ground yourself when feeling overwhelmed or stressed.
+                    </p>
+                    <div class="space-y-3 text-sm text-charcoal/70">
+                        <p><strong>Minute 1:</strong> Notice what's present in your experience</p>
+                        <p><strong>Minute 2:</strong> Focus on the sensation of breathing</p>
+                        <p><strong>Minute 3:</strong> Expand awareness to include the whole body</p>
+                    </div>
+                </div>
+                
+                <div class="mindfulness-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-tiempos text-charcoal mb-4 text-center">STOP Technique</h3>
+                    <p class="text-charcoal/70 text-center mb-6">
+                        A simple acronym to help you pause and respond mindfully to stressful situations.
+                    </p>
+                    <div class="space-y-3 text-sm text-charcoal/70">
+                        <p><strong>S</strong> - Stop what you're doing</p>
+                        <p><strong>T</strong> - Take a breath</p>
+                        <p><strong>O</strong> - Observe your experience</p>
+                        <p><strong>P</strong> - Proceed with awareness</p>
+                    </div>
+                </div>
+                
+                <div class="mindfulness-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-tiempos text-charcoal mb-4 text-center">5-4-3-2-1 Grounding</h3>
+                    <p class="text-charcoal/70 text-center mb-6">
+                        Use your senses to anchor yourself in the present moment during moments of anxiety.
+                    </p>
+                    <div class="space-y-3 text-sm text-charcoal/70">
+                        <p><strong>5</strong> things you can see</p>
+                        <p><strong>4</strong> things you can touch</p>
+                        <p><strong>3</strong> things you can hear</p>
+                        <p><strong>2</strong> things you can smell</p>
+                        <p><strong>1</strong> thing you can taste</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-tiempos text-charcoal mb-4">Related Articles</h2>
+                <p class="text-xl text-charcoal/70">More insights on mindfulness and mental wellness</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/mindfulness.jpg" alt="Anxiety and Mindfulness" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="understanding-anxiety.html" class="hover:text-sage transition-colors">
+                                Understanding Anxiety: When Worry Becomes Overwhelming
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Learn how mindfulness can help manage anxiety and worry effectively.
+                        </p>
+                        <a href="understanding-anxiety.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/therapy-room.jpg" alt="MBCT Therapy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="mbct-depression-prevention.html" class="hover:text-sage transition-colors">
+                                MBCT for Depression Prevention
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Discover how mindfulness-based cognitive therapy prevents depression relapse.
+                        </p>
+                        <a href="mbct-depression-prevention.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/counseling-room.jpg" alt="Stress Management" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="stress-management-techniques.html" class="hover:text-sage transition-colors">
+                                Evidence-Based Stress Management Techniques
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Practical techniques for managing stress and building resilience.
+                        </p>
+                        <a href="stress-management-techniques.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-sage/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Ready to Start Your Mindfulness Journey?</h2>
+                <p class="text-xl text-charcoal/70 mb-8">
+                    If you're interested in developing a mindfulness practice or learning more about mindfulness-based therapy, 
+                    our experienced team is here to support you every step of the way.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium">
+                        Schedule Consultation
+                    </a>
+                    <a href="../services.html" class="border-2 border-sage text-sage px-8 py-4 rounded-full text-lg font-medium hover:bg-sage hover:text-cream transition-all">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="../index.html" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="../services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="../about.html" class="hover:text-sage transition-colors">About</a></li>
+                        <li><a href="../contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../main.js"></script>
+</body>
+</html>

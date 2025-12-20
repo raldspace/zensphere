@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Anxiety: When Worry Becomes Overwhelming - SereneMind</title>
+    <meta name="description" content="Learn about anxiety disorders, their symptoms, causes, and evidence-based treatment approaches from Dr. Sarah Chen.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#2C3E50',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#D4B896',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Suisse Int\'l', sans-serif; }
+        .btn-primary {
+            background: linear-gradient(135deg, #8FA68E 0%, #A8B5C4 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 142, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        .prose h2 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            color: #2C3E50;
+            font-family: 'Tiempos Headline', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            color: #2C3E50;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .prose ul, .prose ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #8FA68E;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #2C3E50;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="../services.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="../about.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="../blog.html" class="text-sage px-3 py-2 text-sm font-medium border-b-2 border-sage">Blog</a>
+                        <a href="../contact.html" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="../contact.html" class="btn-primary text-cream px-6 py-2 rounded-full text-sm font-medium">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-cream/95 backdrop-blur-lg border-t border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="../services.html" class="block px-3 py-2 text-charcoal hover:text-sage">Services</a>
+                <a href="../about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="../blog.html" class="block px-3 py-2 text-sage font-medium">Blog</a>
+                <a href="../contact.html" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+                <a href="../contact.html" class="block px-3 py-2 btn-primary text-cream rounded-full text-center mx-3">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-sage/10 to-cream/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex flex-wrap gap-2 justify-center mb-6">
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Anxiety</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Mental Health</span>
+                    <span class="px-3 py-1 bg-sage/20 text-sage rounded-full text-sm font-medium">Therapy</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-tiempos text-charcoal mb-6 leading-tight">
+                    Understanding Anxiety: When Worry Becomes Overwhelming
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-charcoal/60 mb-8">
+                    <div class="flex items-center">
+                        <img src="../resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-8 h-8 rounded-full object-cover mr-2">
+                        <span class="text-sm">Dr. Sarah Chen</span>
+                    </div>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">December 19, 2025</span>
+                    <span class="text-sm">•</span>
+                    <span class="text-sm">8 min read</span>
+                </div>
+                <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">
+                    Anxiety affects millions of people worldwide, but understanding its mechanisms and learning 
+                    effective coping strategies can transform your relationship with worry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 bg-sage/5 rounded-xl p-6">
+                        <h3 class="font-semibold text-charcoal mb-4">Table of Contents</h3>
+                        <nav class="space-y-2">
+                            <a href="#what-is-anxiety" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">What is Anxiety?</a>
+                            <a href="#symptoms" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Common Symptoms</a>
+                            <a href="#causes" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Causes & Risk Factors</a>
+                            <a href="#treatment" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Treatment Approaches</a>
+                            <a href="#coping-strategies" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">Coping Strategies</a>
+                            <a href="#seeking-help" class="block text-sm text-charcoal/70 hover:text-sage transition-colors py-1">When to Seek Help</a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="lg:col-span-3">
+                    <article class="prose max-w-none">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-8">
+                            <img src="../resources/mindfulness.jpg" alt="Understanding Anxiety" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent"></div>
+                        </div>
+                        
+                        <section id="what-is-anxiety">
+                            <h2>What is Anxiety?</h2>
+                            <p>
+                                Anxiety is a natural human response to stress or perceived danger. It's that feeling of unease, 
+                                worry, or fear that we all experience from time to time. In fact, some anxiety can be helpful—it 
+                                motivates us to prepare for important events and keeps us alert in potentially dangerous situations.
+                            </p>
+                            <p>
+                                However, when anxiety becomes persistent, overwhelming, or interferes with daily life, it may 
+                                indicate an anxiety disorder. According to the National Institute of Mental Health, anxiety disorders 
+                                are the most common mental health concern in the United States, affecting over 40 million adults.
+                            </p>
+                            <blockquote>
+                                "Anxiety is not just about feeling stressed or worried. It's a complex interplay of thoughts, 
+                                emotions, physical sensations, and behaviors that can significantly impact a person's quality of life."
+                            </blockquote>
+                        </section>
+                        
+                        <section id="symptoms">
+                            <h2>Common Symptoms of Anxiety</h2>
+                            <p>
+                                Anxiety manifests differently in each person, but there are several common symptoms to be aware of. 
+                                These symptoms can be categorized into physical, emotional, and behavioral signs.
+                            </p>
+                            
+                            <h3>Physical Symptoms</h3>
+                            <ul>
+                                <li>Rapid heartbeat or palpitations</li>
+                                <li>Sweating or trembling</li>
+                                <li>Shortness of breath or chest tightness</li>
+                                <li>Nausea or digestive issues</li>
+                                <li>Muscle tension or headaches</li>
+                                <li>Fatigue or difficulty sleeping</li>
+                                <li>Dizziness or lightheadedness</li>
+                            </ul>
+                            
+                            <h3>Emotional and Cognitive Symptoms</h3>
+                            <ul>
+                                <li>Excessive worry or fear</li>
+                                <li>Difficulty concentrating</li>
+                                <li>Irritability or restlessness</li>
+                                <li>Feeling on edge or agitated</li>
+                                <li>Racing thoughts</li>
+                                <li>Catastrophic thinking patterns</li>
+                            </ul>
+                            
+                            <h3>Behavioral Symptoms</h3>
+                            <ul>
+                                <li>Avoiding certain situations or places</li>
+                                <li>Difficulty with daily activities</li>
+                                <li>Seeking constant reassurance</li>
+                                <li>Procrastination due to fear of failure</li>
+                                <li>Social withdrawal</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="causes">
+                            <h2>Causes and Risk Factors</h2>
+                            <p>
+                                Anxiety disorders develop from a complex combination of factors. Understanding these can help 
+                                in developing effective treatment strategies.
+                            </p>
+                            
+                            <h3>Biological Factors</h3>
+                            <p>
+                                Research suggests that genetics play a role in anxiety disorders. If you have a family member 
+                                with an anxiety disorder, you may be at higher risk. Additionally, imbalances in brain 
+                                chemistry, particularly involving neurotransmitters like serotonin and dopamine, can contribute 
+                                to anxiety symptoms.
+                            </p>
+                            
+                            <h3>Environmental Factors</h3>
+                            <p>
+                                Life experiences significantly impact anxiety development. Traumatic events, chronic stress, 
+                                or major life changes can trigger anxiety disorders. Childhood experiences, including trauma 
+                                or neglect, may increase vulnerability to anxiety in adulthood.
+                            </p>
+                            
+                            <h3>Psychological Factors</h3>
+                            <p>
+                                Certain personality traits and thinking patterns can make individuals more susceptible to anxiety. 
+                                Perfectionism, low self-esteem, and a tendency toward negative thinking can all contribute to 
+                                anxiety disorders.
+                            </p>
+                        </section>
+                        
+                        <section id="treatment">
+                            <h2>Evidence-Based Treatment Approaches</h2>
+                            <p>
+                                The good news is that anxiety disorders are highly treatable. Several evidence-based approaches 
+                                have proven effective in helping people manage and overcome anxiety.
+                            </p>
+                            
+                            <h3>Cognitive Behavioral Therapy (CBT)</h3>
+                            <p>
+                                CBT is one of the most effective treatments for anxiety disorders. This approach helps individuals 
+                                identify and change negative thought patterns and behaviors that contribute to anxiety. CBT teaches 
+                                practical skills for managing symptoms and developing healthier coping mechanisms.
+                            </p>
+                            
+                            <h3>Mindfulness-Based Interventions</h3>
+                            <p>
+                                Mindfulness practices, including meditation and mindful awareness, can significantly reduce anxiety 
+                                symptoms. These approaches help individuals develop a different relationship with their thoughts 
+                                and emotions, reducing their power and impact.
+                            </p>
+                            
+                            <h3>Acceptance and Commitment Therapy (ACT)</h3>
+                            <p>
+                                ACT helps individuals develop psychological flexibility by accepting difficult thoughts and feelings 
+                                while committing to valued actions. This approach is particularly helpful for those who struggle 
+                                with chronic worry or panic disorders.
+                            </p>
+                            
+                            <h3>Medication</h3>
+                            <p>
+                                For some individuals, medication can be an important part of treatment. Antidepressants, 
+                                particularly SSRIs and SNRIs, are commonly prescribed for anxiety disorders. These medications 
+                                can help regulate brain chemistry and reduce symptoms.
+                            </p>
+                        </section>
+                        
+                        <section id="coping-strategies">
+                            <h2>Practical Coping Strategies</h2>
+                            <p>
+                                In addition to professional treatment, there are many self-help strategies that can help manage 
+                                anxiety symptoms. Here are some evidence-based techniques you can start using today:
+                            </p>
+                            
+                            <h3>Breathing Exercises</h3>
+                            <p>
+                                Deep, slow breathing can activate your body's relaxation response. Try the 4-7-8 technique: 
+                                inhale for 4 counts, hold for 7, and exhale for 8. Repeat this cycle several times when you 
+                                feel anxious.
+                            </p>
+                            
+                            <h3>Progressive Muscle Relaxation</h3>
+                            <p>
+                                This technique involves systematically tensing and relaxing different muscle groups. It can 
+                                help reduce physical tension and promote overall relaxation.
+                            </p>
+                            
+                            <h3>Grounding Techniques</h3>
+                            <p>
+                                When anxiety feels overwhelming, grounding techniques can help bring you back to the present 
+                                moment. The 5-4-3-2-1 technique involves identifying 5 things you see, 4 you can touch, 
+                                3 you hear, 2 you smell, and 1 you taste.
+                            </p>
+                            
+                            <h3>Lifestyle Modifications</h3>
+                            <ul>
+                                <li>Regular exercise (aim for 30 minutes most days)</li>
+                                <li>Adequate sleep (7-9 hours per night)</li>
+                                <li>Limiting caffeine and alcohol</li>
+                                <li>Practicing stress management techniques</li>
+                                <li>Maintaining social connections</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="seeking-help">
+                            <h2>When to Seek Professional Help</h2>
+                            <p>
+                                While self-help strategies can be beneficial, it's important to know when to seek professional 
+                                support. Consider reaching out to a mental health professional if you experience:
+                            </p>
+                            <ul>
+                                <li>Persistent anxiety that lasts for several weeks or months</li>
+                                <li>Anxiety that interferes with work, relationships, or daily activities</li>
+                                <li>Physical symptoms that don't improve with self-care</li>
+                                <li>Thoughts of self-harm or suicide</li>
+                                <li>Substance use as a way to cope with anxiety</li>
+                                <li>Panic attacks or severe anxiety episodes</li>
+                            </ul>
+                            
+                            <blockquote>
+                                "Seeking help is a sign of strength, not weakness. Professional treatment can provide the 
+                                tools and support needed to effectively manage anxiety and improve quality of life."
+                            </blockquote>
+                            
+                            <p>
+                                Remember, anxiety disorders are highly treatable conditions. With proper support and 
+                                treatment, most people experience significant improvement in their symptoms and overall 
+                                quality of life. If you're struggling with anxiety, know that you're not alone and that 
+                                help is available.
+                            </p>
+                        </section>
+                    </article>
+                    
+                    <!-- Author Bio -->
+                    <div class="bg-sage/5 rounded-2xl p-8 mt-12">
+                        <div class="flex items-start space-x-4">
+                            <img src="../resources/team-dr-sarah.jpg" alt="Dr. Sarah Chen" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="text-lg font-semibold text-charcoal mb-2">Dr. Sarah Chen, PhD</h3>
+                                <p class="text-charcoal/70 text-sm leading-relaxed mb-3">
+                                    Dr. Chen is a licensed clinical psychologist with over 15 years of experience specializing 
+                                    in anxiety disorders and cognitive behavioral therapy. She is passionate about helping 
+                                    individuals develop practical tools for managing anxiety and improving their quality of life.
+                                </p>
+                                <a href="../contact.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                                    Schedule a consultation with Dr. Chen →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-20 bg-beige/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-tiempos text-charcoal mb-4">Related Articles</h2>
+                <p class="text-xl text-charcoal/70">More insights on anxiety and mental wellness</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/mindfulness.jpg" alt="Stress Management" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="stress-management-techniques.html" class="hover:text-sage transition-colors">
+                                5 Evidence-Based Stress Management Techniques
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Discover practical strategies for managing stress and anxiety in your daily life.
+                        </p>
+                        <a href="stress-management-techniques.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/therapy-room.jpg" alt="CBT Techniques" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="cbt-anxiety-techniques.html" class="hover:text-sage transition-colors">
+                                CBT Techniques for Anxiety Relief
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Learn practical cognitive behavioral therapy techniques you can use at home.
+                        </p>
+                        <a href="cbt-anxiety-techniques.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="relative h-48">
+                        <img src="../resources/wellness-center.jpg" alt="Mindfulness Practice" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-tiempos text-charcoal mb-3">
+                            <a href="mindfulness-daily-practice.html" class="hover:text-sage transition-colors">
+                                Building a Sustainable Mindfulness Practice
+                            </a>
+                        </h3>
+                        <p class="text-charcoal/70 text-sm mb-4">
+                            Learn how to incorporate mindfulness into your daily routine for better mental health.
+                        </p>
+                        <a href="mindfulness-daily-practice.html" class="text-sage hover:text-sage/80 text-sm font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-tiempos text-charcoal mb-6">Ready to Take the Next Step?</h2>
+                <p class="text-xl text-charcoal/70 mb-8">
+                    If anxiety is impacting your daily life, professional support can make a significant difference. 
+                    Our experienced therapists are here to help you develop effective coping strategies.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../contact.html" class="btn-primary text-cream px-8 py-4 rounded-full text-lg font-medium">
+                        Schedule Consultation
+                    </a>
+                    <a href="../services.html" class="border-2 border-sage text-sage px-8 py-4 rounded-full text-lg font-medium hover:bg-sage hover:text-cream transition-all">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="../resources/serene-mind-logo.png" alt="SereneMind Logo" class="h-10 w-auto">
+                        <span class="ml-3 text-xl font-tiempos text-sage">SereneMind</span>
+                    </div>
+                    <p class="text-cream/70 mb-6 max-w-md">
+                        Professional psychological services offering evidence-based therapy in a compassionate, 
+                        supportive environment. Your journey to mental wellness starts here.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-cream/70">
+                            <p class="font-semibold">Crisis Hotline:</p>
+                            <p class="text-sage">1-800-CRISIS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="../index.html" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="../services.html" class="hover:text-sage transition-colors">Services</a></li>
+                        <li><a href="../about.html" class="hover:text-sage transition-colors">About</a></li>
+                        <li><a href="../contact.html" class="hover:text-sage transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-cream/70">
+                        <p>123 Wellness Way<br>Suite 200<br>San Francisco, CA 94102</p>
+                        <p>Phone: (415) 555-0123</p>
+                        <p>Email: info@serenemind.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cream/20 mt-12 pt-8 text-center text-cream/60">
+                <p>&copy; 2025 SereneMind Psychological Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../main.js"></script>
+</body>
+</html>
