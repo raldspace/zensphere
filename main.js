@@ -81,7 +81,7 @@ function initServiceSelector() {
                 'No travel time or transportation costs',
                 'Comfortable, familiar environment',
                 'Access to specialized therapists',
-                'Secure, HIPAA-compliant platform'
+                'Secure, CPB and NACADA compliant platform'
             ],
             image: './resources/remote-session.jpg',
             cta: 'Book Remote Session'
