@@ -1,4 +1,4 @@
-// SereneMind - Main JavaScript File
+// zenarapsych - Main JavaScript File
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -81,7 +81,6 @@ function initServiceSelector() {
                 'No travel time or transportation costs',
                 'Comfortable, familiar environment',
                 'Access to specialized therapists',
-                'Secure, CPB and NACADA compliant platform'
             ],
             image: './resources/remote-session.jpg',
             cta: 'Book Remote Session'
@@ -674,7 +673,7 @@ function addLoadingState(element) {
 }
 
 // Export functions for use in other files if needed
-window.SereneMind = {
+window.zenarapsych = {
     showNotification,
     addLoadingState,
     initAppointmentScheduler,
