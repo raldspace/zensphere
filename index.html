@@ -261,7 +261,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 md:h-24">
                 <div class="flex items-center">
-                    <!-- Logo only -->
                     <a href="#home" class="flex items-center">
                         <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
                             <img 
@@ -313,11 +312,20 @@
     <section id="home" class="relative min-h-[70vh] flex items-center overflow-hidden">
         <!-- Full-width background image -->
         <div class="absolute inset-0 z-0">
-            <div class="w-full h-full bg-cover bg-center" style="background-image: url('resources/ocean-mindfulness.jpg');"></div>
-            <!-- Overlay gradients -->
-            <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/70 via-neutral-900/50 to-neutral-900/30 sm:from-neutral-900/60 sm:via-neutral-900/40 sm:to-neutral-900/25 md:from-neutral-900/40 md:via-neutral-900/25 md:to-neutral-900/15"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/50 sm:to-neutral-900/40 md:to-neutral-900/20"></div>
+        <!-- Mobile image (shown on mobile, hidden on desktop) -->
+        <div class="block md:hidden w-full h-full">
+            <div class="w-full h-full bg-cover bg-center" style="background-image: url('resources/ocean-mindfulness-mobile.png');"></div>
         </div>
+        
+        <!-- Desktop image (hidden on mobile, shown on desktop) -->
+        <div class="hidden md:block w-full h-full">
+            <div class="w-full h-full bg-cover bg-center" style="background-image: url('resources/ocean-mindfulness.jpg');"></div>
+        </div>
+        
+        <!-- Overlay gradients (same for both) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/40 via-neutral-900/20 to-neutral-900/0 sm:from-neutral-900/30 sm:via-neutral-900/10 sm:to-neutral-900/0 md:from-neutral-900/10 md:via-neutral-900/0 md:to-neutral-900/0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/20 sm:to-neutral-900/10 md:to-neutral-900/0"></div>
+    </div>
 
         <!-- Container with proper padding -->
         <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 z-10">
@@ -669,7 +677,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="col-span-2">
-                    <!-- Footer logo - updated to match navigation -->
+                    <!-- Footer logo -->
                     <div class="flex items-center mb-6">
                         <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
                             <img 
