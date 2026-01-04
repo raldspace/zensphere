@@ -403,17 +403,17 @@
             <div class="max-w-4xl mx-auto">
                 <div class="flex justify-center mb-12">
                     <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full p-2 flex">
-                        <button id="remote-btn" class="service-toggle active px-8 py-3 rounded-full text-lg font-medium transition-all bg-white text-primary shadow-lg">
+                        <button id="remote-btn" class="service-toggle active px-8 py-3 rounded-full text-lg font-medium transition-all text-charcoal hover:bg-sage hover:text-cream">
                             <i class="fas fa-video mr-2"></i> Remote Therapy
                         </button>
-                        <button id="inperson-btn" class="service-toggle px-8 py-3 rounded-full text-lg font-medium transition-all text-neutral-600 hover:text-primary">
+                        <button id="inperson-btn" class="service-toggle px-8 py-3 rounded-full text-lg font-medium transition-all text-charcoal hover:bg-sage hover:text-cream">
                             <i class="fas fa-user-friends mr-2"></i> In-Person Services
                         </button>
                     </div>
                 </div>
                 
                 <div id="service-content" class="grid md:grid-cols-2 gap-8">
-                    <!-- Content will be dynamically updated -->
+                    <!-- Content will be dynamically updated by main.js -->
                 </div>
             </div>
         </div>
@@ -432,7 +432,7 @@
                     <div class="lg:w-1/2">
                         <div class="h-full rounded-2xl overflow-hidden shadow-xl">
                             <img
-                                src="./resources/book-with-us.png"
+                                src="./resources/book-with-us.PNG"
                                 alt="Therapy and mental wellness"
                                 class="w-full h-full object-cover"
                             >
@@ -734,164 +734,64 @@
             menu.classList.toggle('hidden');
         });
 
-        // Typed.js initialization with shorter strings to prevent cutoff
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize typed.js with responsive strings
-            const typed = new Typed('#typed-text', {
-                strings: ['Discover', 'Embrace', 'Begin', 'Find', 'Start'],
-                typeSpeed: 100,
-                backSpeed: 60,
-                loop: true,
-                showCursor: true,
-                cursorChar: '|',
-                smartBackspace: true
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        const mobileMenu = document.getElementById('mobile-menu');
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-
-            // Fade-in animation on scroll
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Initial check
-            fadeInOnScroll();
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-
-            // Initialize testimonial slider
-            new Splide('#testimonial-slider', {
-                type: 'loop',
-                perPage: 1,
-                perMove: 1,
-                gap: '2rem',
-                pagination: true,
-                arrows: true,
-                breakpoints: {
-                    768: {
-                        arrows: false
-                    }
-                }
-            }).mount();
-
-            // Assessment button functionality
-            const assessmentBtn = document.getElementById('start-assessment');
-            const quizContainer = document.getElementById('quiz-container');
-            
-            if (assessmentBtn && quizContainer) {
-                assessmentBtn.addEventListener('click', function() {
-                    quizContainer.classList.remove('hidden');
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
                     window.scrollTo({
-                        top: quizContainer.offsetTop - 100,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                });
-            }
-
-            // Service type selector
-            const remoteBtn = document.getElementById('remote-btn');
-            const inpersonBtn = document.getElementById('inperson-btn');
-            const serviceContent = document.getElementById('service-content');
-            
-            if (remoteBtn && inpersonBtn && serviceContent) {
-                const remoteContent = `
-                    <div class="service-card p-8 rounded-2xl">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                                <i class="fas fa-video text-primary text-2xl"></i>
-                            </div>
-                            <div class="ml-6">
-                                <h3 class="text-2xl font-tiempos text-neutral-900">Remote Therapy</h3>
-                                <p class="text-neutral-600">Convenient online sessions from anywhere</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-neutral-600">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Secure video sessions</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Flexible scheduling</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Comfort of your own space</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> No travel required</li>
-                        </ul>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-medium inline-flex items-center">
-                            <i class="fas fa-calendar-alt mr-2"></i> Schedule Remote Session
-                        </a>
-                    </div>
-                `;
-                
-                const inpersonContent = `
-                    <div class="service-card p-8 rounded-2xl">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center">
-                                <i class="fas fa-user-friends text-secondary text-2xl"></i>
-                            </div>
-                            <div class="ml-6">
-                                <h3 class="text-2xl font-tiempos text-neutral-900">In-Person Services</h3>
-                                <p class="text-neutral-600">Personalized face-to-face therapy</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-neutral-600">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i> Private therapy rooms</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i> Direct personal interaction</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i> Comfortable, safe environment</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i> Traditional therapy experience</li>
-                        </ul>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-medium inline-flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i> Book In-Person Appointment
-                        </a>
-                    </div>
-                `;
-                
-                // Set initial content
-                serviceContent.innerHTML = remoteContent;
-                
-                // Add event listeners
-                remoteBtn.addEventListener('click', function() {
-                    remoteBtn.classList.add('active', 'bg-white', 'text-primary', 'shadow-lg');
-                    inpersonBtn.classList.remove('active', 'bg-white', 'text-primary', 'shadow-lg');
-                    inpersonBtn.classList.add('text-neutral-600', 'hover:text-primary');
-                    serviceContent.innerHTML = remoteContent;
-                });
-                
-                inpersonBtn.addEventListener('click', function() {
-                    inpersonBtn.classList.add('active', 'bg-white', 'text-primary', 'shadow-lg');
-                    remoteBtn.classList.remove('active', 'bg-white', 'text-primary', 'shadow-lg');
-                    remoteBtn.classList.add('text-neutral-600', 'hover:text-primary');
-                    serviceContent.innerHTML = inpersonContent;
-                });
-            }
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
         });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initial check
+        fadeInOnScroll();
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Initialize testimonial slider
+        new Splide('#testimonial-slider', {
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            gap: '2rem',
+            pagination: true,
+            arrows: true,
+            breakpoints: {
+                768: {
+                    arrows: false
+                }
+            }
+        }).mount();
     </script>
+    
+    <!-- Main JavaScript File -->
+    <script src="main.js"></script>
 </body>
 </html>
