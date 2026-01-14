@@ -649,32 +649,46 @@
                     </div>
                     
                     <!-- Contact Form -->
-                    <div class="fade-in">
-                        <h3 class="text-2xl font-tiempos text-neutral-900 mb-6">Send Us a <span class="gradient-text">Message</span></h3>
-                        <form id="contact-form" class="space-y-4">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="name" placeholder="Your Name" required 
-                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
-                                <input type="email" name="email" placeholder="Your Email" required 
-                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
-                            </div>
-                            <input type="tel" name="phone" placeholder="Your Phone Number" 
-                                   class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
-                            <select name="subject" 
+                        <div class="fade-in">
+                            <h3 class="text-2xl font-tiempos text-neutral-900 mb-6">
+                                Send Us a <span class="gradient-text">Message</span>
+                            </h3>
+
+                            <!-- Added action and method for FormSubmit -->
+                            <form id="contact-form" class="space-y-4" 
+                                action="https://formsubmit.co/info@zenarapsych.com" method="POST">
+                                
+                                <!-- Hidden _next field to stay on the same page (prevents FormSubmit redirect) -->
+                                <input type="hidden" name="_next" value="">
+
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="text" name="name" placeholder="Your Name" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
+                                    <input type="email" name="email" placeholder="Your Email" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
+                                </div>
+
+                                <input type="tel" name="phone" placeholder="Your Phone Number" 
                                     class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
-                                <option value="">Select Subject</option>
-                                <option value="appointment">Schedule Appointment</option>
-                                <option value="services">Service Information</option>
-                                <option value="emergency">Crisis Support</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <textarea name="message" rows="5" placeholder="Your Message" required 
-                                      class="form-input w-full px-4 py-3 rounded-xl focus:outline-none resize-none"></textarea>
-                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-full text-lg font-medium w-full pulse-button">
-                                <i class="fas fa-paper-plane mr-2"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
+
+                                <select name="subject" 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
+                                    <option value="">Select Subject</option>
+                                    <option value="appointment">Schedule Appointment</option>
+                                    <option value="services">Service Information</option>
+                                    <option value="emergency">Crisis Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+
+                                <textarea name="message" rows="5" placeholder="Your Message" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none resize-none"></textarea>
+
+                                <button type="submit" 
+                                        class="btn-primary text-white px-8 py-3 rounded-full text-lg font-medium w-full pulse-button">
+                                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
                 </div>
                 
                 <!-- Map and Directions -->
