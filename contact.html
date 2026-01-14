@@ -665,12 +665,9 @@
                                 <input type="hidden" name="_captcha" value="false">
                                 <input type="hidden" name="_autoresponse" value="Thank you for contacting Zenara Psychological Services. We have received your message and will get back to you within 24 hours.">
                                 
-                                <!-- Optional: Redirect after submission -->
-                                <input type="hidden" name="_next" value="https://yourwebsite.com/contact.html?message=success">
-                                
-                                <!-- Optional: Add CC to other emails -->
-                                <!-- <input type="hidden" name="_cc" value="appointments@zenarapsych.com"> -->
-                                
+                                <!-- Redirect after submission -->
+                                <input type="hidden" name="_next" value="https://zenarapsych.com/contact.html?message=success">
+                                                                
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <input type="text" name="name" placeholder="Your Name" required 
                                         class="form-input w-full px-4 py-3 rounded-xl focus:outline-none">
@@ -1037,7 +1034,7 @@
             // Form submission
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
-                
+
                 contactForm.addEventListener('submit', function() {
                     const submitBtn = this.querySelector('button[type="submit"]');
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
