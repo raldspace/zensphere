@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Zenara Psychological Services</title>
+    <meta name="description" content="Read our Terms of Service to understand the guidelines for using our website and services. Professional psychology practice terms and conditions.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Modern color palette
+                        primary: {
+                            light: '#7C96FF',
+                            DEFAULT: '#5A78FF',
+                            dark: '#3A5AFF'
+                        },
+                        secondary: {
+                            light: '#8CE0D8',
+                            DEFAULT: '#5AD4C9',
+                            dark: '#2BC8BA'
+                        },
+                        accent: {
+                            light: '#FFA7C4',
+                            DEFAULT: '#FF7BA7',
+                            dark: '#FF4F8B'
+                        },
+                        neutral: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A'
+                        },
+                        // Keeping some original colors for compatibility
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#1E293B',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#FBBF24',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                'box-shadow': '0 0 20px rgba(90, 120, 255, 0.3)',
+                                'transform': 'scale(1)'
+                            },
+                            '50%': { 
+                                'box-shadow': '0 0 40px rgba(90, 120, 255, 0.6)',
+                                'transform': 'scale(1.02)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        }
+        .terms-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .terms-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(90, 120, 255, 0.1),
+                0 10px 20px rgba(140, 224, 216, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            border-color: rgba(90, 120, 255, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #5A78FF 0%, #7C96FF 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(90, 120, 255, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #5AD4C9;
+            color: #2BC8BA;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #5AD4C9 0%, #8CE0D8 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(90, 212, 201, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #5A78FF 0%, #5AD4C9 50%, #FF7BA7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #5A78FF, #5AD4C9);
+        }
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-5px);
+            border-color: #5A78FF;
+        }
+        .important-note {
+            background: linear-gradient(120deg, rgba(255, 123, 167, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+            border-left: 4px solid #FF7BA7;
+        }
+        .professional-note {
+            background: linear-gradient(120deg, rgba(90, 120, 255, 0.1) 0%, rgba(90, 212, 201, 0.1) 100%);
+            border-left: 4px solid #5A78FF;
+        }
+        .terms-list-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .terms-list-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #5A78FF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
+                            <img 
+                                src="./resources/zenara-logo.png" 
+                                alt="Zenara Psychological Services" 
+                                class="w-full h-auto object-contain"
+                            >
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Home</a>
+                        <a href="services.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Services</a>
+                        <a href="about.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">About</a>
+                        <a href="blog.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Blog</a>
+                        <a href="contact.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Contact</a>
+                        <a href="terms.html" class="text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Terms</a>
+                        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-medium pulse-button">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-neutral-700 hover:text-primary p-2 rounded-lg hover:bg-neutral-100 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t border-neutral-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Home</a>
+                <a href="services.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Services</a>
+                <a href="about.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">About</a>
+                <a href="blog.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Blog</a>
+                <a href="contact.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Contact</a>
+                <a href="privacy.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Privacy</a>
+                <a href="terms.html" class="block px-3 py-3 text-primary bg-primary/5 rounded-lg">Terms of Service</a>
+                <a href="contact.html" class="block px-3 py-3 btn-primary text-white rounded-full text-center mx-2 mt-4 pulse-button">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/5"></div>
+        <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-accent/10 blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl font-tiempos text-neutral-900 mb-6">Terms of <span class="gradient-text">Service</span></h1>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Please read these terms carefully before using our website or services. These terms govern your relationship with Zenara Psychological Services.
+                </p>
+                <div class="mt-8 inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-neutral-200">
+                    <div class="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></div>
+                    <span class="text-sm text-neutral-600">Effective: January 15, 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="terms-card rounded-2xl p-8 mb-12 fade-in">
+                <!-- Important Notice -->
+                <div class="important-note p-6 rounded-xl mb-8">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-exclamation-circle text-accent text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-neutral-900 mb-2">Important Notice</h4>
+                            <p class="text-neutral-600">
+                                <strong>These terms do not constitute a therapeutic relationship.</strong> Reading this website or contacting us does not establish a therapist-client relationship. A therapeutic relationship is only established through formal intake procedures and signed consent forms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 1: Acceptance of Terms -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-check-circle text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">1. Acceptance of Terms</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-4">
+                        <p>By accessing and using this website, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="p-4 rounded-lg bg-neutral-50">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-user-check text-primary mr-2"></i>
+                                    User Agreement
+                                </h4>
+                                <ul class="text-sm space-y-2">
+                                    <li class="terms-list-item">You agree to use the website lawfully</li>
+                                    <li class="terms-list-item">You accept our privacy practices</li>
+                                    <li class="terms-list-item">You acknowledge our professional limitations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-neutral-50">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-file-contract text-secondary mr-2"></i>
+                                    Modifications
+                                </h4>
+                                <ul class="text-sm space-y-2">
+                                    <li class="terms-list-item">We may update terms periodically</li>
+                                    <li class="terms-list-item">Continued use constitutes acceptance</li>
+                                    <li class="terms-list-item">Major changes will be notified</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Professional Services -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-stethoscope text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">2. Professional Services</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-6">
+                        <div class="professional-note p-5 rounded-lg">
+                            <h4 class="font-semibold text-neutral-900 mb-2">Clinical Services Framework</h4>
+                            <p class="text-sm">All psychological services are provided by licensed professionals in accordance with ethical guidelines and professional standards.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Therapeutic Relationship</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-check text-primary text-xs"></i>
+                                        </div>
+                                        <span>Formal intake assessment required</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-check text-primary text-xs"></i>
+                                        </div>
+                                        <span>Written informed consent mandatory</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-check text-primary text-xs"></i>
+                                        </div>
+                                        <span>Clear treatment plan development</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Service Limitations</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-times text-secondary text-xs"></i>
+                                        </div>
+                                        <span>Not for emergency mental health situations</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-times text-secondary text-xs"></i>
+                                        </div>
+                                        <span>Not a substitute for crisis intervention</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <i class="fas fa-times text-secondary text-xs"></i>
+                                        </div>
+                                        <span>Cannot guarantee specific outcomes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Appointments & Fees -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-calendar-alt text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">3. Appointments & Fees</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse">
+                                <thead>
+                                    <tr class="bg-neutral-50">
+                                        <th class="text-left p-4 border-b border-neutral-200 font-semibold text-neutral-900">Policy</th>
+                                        <th class="text-left p-4 border-b border-neutral-200 font-semibold text-neutral-900">Details</th>
+                                        <th class="text-left p-4 border-b border-neutral-200 font-semibold text-neutral-900">Timeframe</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-neutral-100 hover:bg-neutral-50">
+                                        <td class="p-4 font-medium">Cancellation</td>
+                                        <td class="p-4">24 hours notice required</td>
+                                        <td class="p-4">Business hours</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-100 hover:bg-neutral-50">
+                                        <td class="p-4 font-medium">Late Cancellation</td>
+                                        <td class="p-4">50% session fee may apply</td>
+                                        <td class="p-4">Less than 24 hours</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-100 hover:bg-neutral-50">
+                                        <td class="p-4 font-medium">No Show</td>
+                                        <td class="p-4">Full session fee charged</td>
+                                        <td class="p-4">Without notice</td>
+                                    </tr>
+                                    <tr class="hover:bg-neutral-50">
+                                        <td class="p-4 font-medium">Payment</td>
+                                        <td class="p-4">Due at time of service</td>
+                                        <td class="p-4">Per session</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="p-4 rounded-lg bg-gradient-to-br from-primary/5 to-transparent">
+                                <h4 class="font-semibold text-neutral-900 mb-3">Payment Methods</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-white rounded-full text-xs border border-neutral-200">M-Pesa</span>
+                                    <span class="px-3 py-1 bg-white rounded-full text-xs border border-neutral-200">Bank Transfer</span>
+                                    <span class="px-3 py-1 bg-white rounded-full text-xs border border-neutral-200">Cash</span>
+                                    <span class="px-3 py-1 bg-white rounded-full text-xs border border-neutral-200">Insurance</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-gradient-to-br from-secondary/5 to-transparent">
+                                <h4 class="font-semibold text-neutral-900 mb-3">Insurance Information</h4>
+                                <p class="text-sm text-neutral-600">We work with select insurance providers. Please verify coverage before your first appointment. We provide necessary documentation for reimbursement claims.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Emergency Protocol -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-exclamation-triangle text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">4. Emergency Protocol</h3>
+                    </div>
+                    <div class="text-neutral-600">
+                        <div class="bg-gradient-to-r from-accent/5 to-transparent border-l-4 border-accent p-5 rounded-r-lg mb-6">
+                            <h4 class="font-semibold text-neutral-900 mb-3 text-lg">CRITICAL NOTICE</h4>
+                            <p class="text-neutral-700">
+                                <strong>This website and our contact methods are NOT for emergencies.</strong> If you are experiencing a mental health crisis or emergency, please use the following resources:
+                            </p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200 text-center">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-ambulance text-red-500 text-xl"></i>
+                                </div>
+                                <h5 class="font-semibold text-neutral-900 mb-2">Emergency Services</h5>
+                                <p class="text-xs text-neutral-600">Call 911 or go to your nearest emergency room</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200 text-center">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-phone-alt text-blue-500 text-xl"></i>
+                                </div>
+                                <h5 class="font-semibold text-neutral-900 mb-2">Crisis Hotline</h5>
+                                <p class="text-xs text-neutral-600">Red Cross: 1199</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200 text-center">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-hands-helping text-green-500 text-xl"></i>
+                                </div>
+                                <h5 class="font-semibold text-neutral-900 mb-2">Crisis Text Line</h5>
+                                <p class="text-xs text-neutral-600">Available 24/7 for immediate support</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-5 rounded-lg bg-neutral-50">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Our Emergency Policy</h4>
+                            <p class="text-sm text-neutral-600">
+                                We do not provide emergency services through this website, email, or non-scheduled phone calls. 
+                                For urgent matters between sessions, please use the emergency contact information provided during 
+                                your intake process or the resources listed above.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Intellectual Property -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-copyright text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">5. Intellectual Property</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-4">
+                        <p>All content on this website is protected by copyright and intellectual property laws:</p>
+                        
+                        <div class="grid md:grid-cols-3 gap-6 mt-6">
+                            <div class="p-4 rounded-lg text-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-file-alt text-primary text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Website Content</h4>
+                                <p class="text-xs text-neutral-500">All text, images, and design elements are proprietary</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg text-center">
+                                <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-book text-secondary text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Educational Materials</h4>
+                                <p class="text-xs text-neutral-500">Resources and worksheets are for client use only</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg text-center">
+                                <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-user-secret text-accent text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Therapeutic Materials</h4>
+                                <p class="text-xs text-neutral-500">Assessment tools and protocols are professional property</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Permissions</h4>
+                            <p class="text-sm text-neutral-600">
+                                You may view and print pages from this website for personal, non-commercial use. 
+                                Any other use, including reproduction, modification, distribution, or republication 
+                                without prior written consent is strictly prohibited.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Limitation of Liability -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-balance-scale text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">6. Limitation of Liability</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-6">
+                        <div class="p-5 rounded-lg bg-neutral-50">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Disclaimer of Warranties</h4>
+                            <p class="text-sm">
+                                This website and its content are provided "as is" without warranties of any kind, 
+                                either express or implied. We do not warrant that the website will be uninterrupted 
+                                or error-free, or that defects will be corrected.
+                            </p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Clinical Disclaimer</h4>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-primary mr-2 mt-1"></i>
+                                        <span>Website content is informational only</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-primary mr-2 mt-1"></i>
+                                        <span>Not a substitute for professional diagnosis</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-shield-alt text-primary mr-2 mt-1"></i>
+                                        <span>Not personalized therapeutic advice</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Liability Limitation</h4>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-gavel text-secondary mr-2 mt-1"></i>
+                                        <span>Not liable for website technical issues</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-gavel text-secondary mr-2 mt-1"></i>
+                                        <span>Not responsible for third-party content</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-gavel text-secondary mr-2 mt-1"></i>
+                                        <span>Liability limited to permitted by law</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Governing Law -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-gavel text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">7. Governing Law & Disputes</h3>
+                    </div>
+                    <div class="text-neutral-600">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Jurisdiction</h4>
+                                <div class="p-4 rounded-lg bg-neutral-50">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-flag text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Governing Law</p>
+                                            <p class="text-sm text-neutral-500">Laws of Kenya</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600">
+                                        These terms are governed by and construed in accordance with the laws of Kenya. 
+                                        Any disputes shall be subject to the exclusive jurisdiction of the courts of Kenya.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Dispute Resolution</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 rounded-lg border border-neutral-200">
+                                        <h5 class="font-medium text-neutral-900 mb-2 flex items-center">
+                                            <i class="fas fa-handshake text-secondary mr-2"></i>
+                                            Professional Resolution
+                                        </h5>
+                                        <p class="text-xs text-neutral-600">First attempt resolution through professional channels</p>
+                                    </div>
+                                    <div class="p-4 rounded-lg border border-neutral-200">
+                                        <h5 class="font-medium text-neutral-900 mb-2 flex items-center">
+                                            <i class="fas fa-users text-secondary mr-2"></i>
+                                            Kenya Psychological Association
+                                        </h5>
+                                        <p class="text-xs text-neutral-600">Referral to professional ethics committee if needed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Contact Information -->
+                <div class="section-card rounded-xl p-6 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-address-card text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">8. Contact Information</h3>
+                    </div>
+                    <div class="text-neutral-600">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">For Terms Inquiries</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 rounded-lg bg-gradient-to-r from-primary/5 to-transparent">
+                                        <h5 class="font-medium text-neutral-900 mb-1">Practice Manager</h5>
+                                        <p class="text-sm text-neutral-600">Evon Caroline</p>
+                                        <p class="text-xs text-neutral-500 mt-1">Counselling Psychologist | Founder</p>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <p class="flex items-center">
+                                            <i class="fas fa-envelope text-primary mr-3"></i>
+                                            <span>Email: contact@zenarapsych.com</span>
+                                        </p>
+                                        <p class="flex items-center">
+                                            <i class="fas fa-phone text-primary mr-3"></i>
+                                            <span>Phone: +254 115 277 559</span>
+                                        </p>
+                                        <p class="flex items-center">
+                                            <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                                            <span>Address: Nairobi, Kenya 00100</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Response Time</h4>
+                                <div class="p-5 rounded-lg bg-neutral-50">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mr-3">
+                                            <i class="fas fa-clock text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Business Hours</p>
+                                            <p class="text-sm text-neutral-500">Monday - Friday, 9AM - 5PM EAT</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600">
+                                        We aim to respond to all inquiries within 2-3 business days. 
+                                        Please note that we do not provide therapeutic advice via email.
+                                    </p>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <h5 class="font-medium text-neutral-900 mb-2">Related Policies</h5>
+                                    <div class="flex flex-wrap gap-2">
+                                        <a href="privacy.html" class="px-3 py-2 bg-white rounded-lg text-sm border border-neutral-200 hover:border-primary hover:text-primary transition-colors">
+                                            <i class="fas fa-user-shield mr-2"></i>Privacy Policy
+                                        </a>
+                                        <a href="about.html" class="px-3 py-2 bg-white rounded-lg text-sm border border-neutral-200 hover:border-primary hover:text-primary transition-colors">
+                                            <i class="fas fa-users mr-2"></i>About Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Agreement Section -->
+                <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 fade-in">
+                    <div class="text-center">
+                        <h4 class="text-2xl font-tiempos text-neutral-900 mb-4">Agreement & Acceptance</h4>
+                        <p class="text-neutral-600 mb-6 max-w-2xl mx-auto">
+                            By using our website or services, you acknowledge that you have read, understood, 
+                            and agree to be bound by these Terms of Service. These terms represent the entire 
+                            agreement between you and Zenara Psychological Services regarding your use of our website.
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <div class="w-3 h-3 rounded-full bg-secondary mr-3 animate-pulse"></div>
+                            <p class="text-sm text-neutral-500">Last updated: January 15, 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Note -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center p-8 rounded-2xl border border-neutral-200">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-hand-holding-heart text-primary text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-tiempos text-neutral-900 mb-4">Professional Commitment</h3>
+                <p class="text-lg text-neutral-600 mb-6 max-w-2xl mx-auto">
+                    While these terms outline our professional boundaries and legal framework, 
+                    our primary commitment remains to your mental health and well-being. 
+                    We strive to provide compassionate, ethical care within these professional parameters.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary text-white px-8 py-3 rounded-full text-lg font-medium">
+                        <i class="fas fa-comments mr-2"></i> Contact for Clarification
+                    </a>
+                    <a href="services.html" class="btn-secondary px-8 py-3 rounded-full text-lg font-medium">
+                        <i class="fas fa-clipboard-list mr-2"></i> View Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <!-- Footer logo -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
+                            <img 
+                                src="./resources/zenara-logo.png" 
+                                alt="Zenara Psychological Services" 
+                                class="w-full h-auto object-contain"
+                            >
+                        </div>
+                    </div>
+                    <p class="text-white/70 mb-6 max-w-md">
+                        At Zenara Psychological Service, we believe mental well-being is essential to a balanced and fulfilling life.
+                    We provide compassionate, ethical, and evidence-based psychological care in a safe and non-judgemental space, empowering
+                    individuals to achieve emotional clarity, inner calm and lasting personal growth.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-white/70">
+                            <p class="font-semibold text-white">Crisis Hotline:</p>
+                            <p class="text-secondary">Redcross (1199)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Legal</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="privacy.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Terms of Service</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Contact</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+                    <div class="space-y-3 text-white/70">
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt text-primary mr-3"></i> Nairobi, Kenya 00100</p>
+                        <p class="flex items-center"><i class="fas fa-phone text-primary mr-3"></i> Phone: +254 115 277 559</p>
+                        <p class="flex items-center"><i class="fas fa-envelope text-primary mr-3"></i> Email: info@zenarapsych.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p>&copy; 2026 Zenara Psychological Services. All rights reserved.</p>
+                <p class="text-sm mt-2">Professional psychological services provided by licensed practitioners in accordance with Kenyan regulations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Initial check
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Add hover effects to section cards
+            const sectionCards = document.querySelectorAll('.section-card');
+            sectionCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add print button
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print mr-2"></i> Print Terms';
+            printButton.className = 'fixed bottom-8 right-8 bg-primary text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 hidden md:flex items-center';
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+            document.body.appendChild(printButton);
+            
+            // Emergency resources highlight
+            const emergencySection = document.querySelector('.section-card:nth-child(4)');
+            if (emergencySection) {
+                emergencySection.addEventListener('mouseenter', function() {
+                    const criticalNotice = this.querySelector('.bg-gradient-to-r');
+                    if (criticalNotice) {
+                        criticalNotice.style.transform = 'scale(1.01)';
+                        criticalNotice.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                emergencySection.addEventListener('mouseleave', function() {
+                    const criticalNotice = this.querySelector('.bg-gradient-to-r');
+                    if (criticalNotice) {
+                        criticalNotice.style.transform = 'scale(1)';
+                    }
+                });
+            }
+            
+            // Table row highlighting
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'rgba(248, 250, 252, 0.8)';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

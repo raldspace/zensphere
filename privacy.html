@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Zenara Psychological Services</title>
+    <meta name="description" content="Read our Privacy Policy to understand how Zenara Psychological Services protects your personal information and maintains confidentiality in accordance with professional ethics and data protection regulations.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;600&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Modern color palette
+                        primary: {
+                            light: '#7C96FF',
+                            DEFAULT: '#5A78FF',
+                            dark: '#3A5AFF'
+                        },
+                        secondary: {
+                            light: '#8CE0D8',
+                            DEFAULT: '#5AD4C9',
+                            dark: '#2BC8BA'
+                        },
+                        accent: {
+                            light: '#FFA7C4',
+                            DEFAULT: '#FF7BA7',
+                            dark: '#FF4F8B'
+                        },
+                        neutral: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A'
+                        },
+                        // Keeping some original colors for compatibility
+                        sage: '#8FA68E',
+                        cream: '#F7F5F3',
+                        charcoal: '#1E293B',
+                        dusty: '#A8B5C4',
+                        beige: '#E8E2D5',
+                        gold: '#FBBF24',
+                        lavender: '#C8B5D1'
+                    },
+                    fontFamily: {
+                        'tiempos': ['Tiempos Headline', 'serif'],
+                        'suisse': ['Suisse Int\'l', 'sans-serif']
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                'box-shadow': '0 0 20px rgba(90, 120, 255, 0.3)',
+                                'transform': 'scale(1)'
+                            },
+                            '50%': { 
+                                'box-shadow': '0 0 40px rgba(90, 120, 255, 0.6)',
+                                'transform': 'scale(1.02)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        }
+        .policy-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(90, 120, 255, 0.1),
+                0 10px 20px rgba(140, 224, 216, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            border-color: rgba(90, 120, 255, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #5A78FF 0%, #7C96FF 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(90, 120, 255, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #5AD4C9;
+            color: #2BC8BA;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #5AD4C9 0%, #8CE0D8 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(90, 212, 201, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #5A78FF 0%, #5AD4C9 50%, #FF7BA7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .section-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #5A78FF, #5AD4C9);
+        }
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-5px);
+            border-color: #5A78FF;
+        }
+        .privacy-highlight {
+            background: linear-gradient(120deg, rgba(90, 120, 255, 0.1) 0%, rgba(90, 212, 201, 0.1) 100%);
+            border-left: 4px solid #5A78FF;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
+                            <img 
+                                src="./resources/zenara-logo.png" 
+                                alt="Zenara Psychological Services" 
+                                class="w-full h-auto object-contain"
+                            >
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Home</a>
+                        <a href="services.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Services</a>
+                        <a href="about.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">About</a>
+                        <a href="blog.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Blog</a>
+                        <a href="contact.html" class="text-neutral-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Contact</a>
+                        <a href="privacy.html" class="text-primary px-3 py-2 text-sm font-medium transition-colors hover:-translate-y-1 duration-300">Privacy</a>
+                        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-medium pulse-button">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-neutral-700 hover:text-primary p-2 rounded-lg hover:bg-neutral-100 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t border-neutral-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Home</a>
+                <a href="services.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Services</a>
+                <a href="about.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">About</a>
+                <a href="blog.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Blog</a>
+                <a href="contact.html" class="block px-3 py-3 text-neutral-700 hover:text-primary hover:bg-neutral-50 rounded-lg transition-colors">Contact</a>
+                <a href="privacy.html" class="block px-3 py-3 text-primary bg-primary/5 rounded-lg">Privacy Policy</a>
+                <a href="contact.html" class="block px-3 py-3 btn-primary text-white rounded-full text-center mx-2 mt-4 pulse-button">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/5"></div>
+        <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-accent/10 blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl font-tiempos text-neutral-900 mb-6">Privacy <span class="gradient-text">Policy</span></h1>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Your privacy and confidentiality are paramount. This policy explains how we collect, use, and protect your personal information in accordance with professional ethics and data protection regulations.
+                </p>
+                <div class="mt-8 inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-neutral-200">
+                    <div class="w-2 h-2 rounded-full bg-secondary mr-2 animate-pulse"></div>
+                    <span class="text-sm text-neutral-600">Last updated: January 15, 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="policy-card rounded-2xl p-8 mb-12 fade-in">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-tiempos text-neutral-900 mb-4">Our Commitment to Your <span class="gradient-text">Privacy</span></h2>
+                    <p class="text-lg text-neutral-600 leading-relaxed">
+                        At Zenara Psychological Services, we are committed to protecting your privacy and maintaining the confidentiality of your personal information. As licensed professionals, we adhere to strict ethical guidelines and legal requirements regarding client confidentiality and data protection.
+                    </p>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-shield text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">1. Information We Collect</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-4">
+                        <p>We collect information necessary to provide psychological services, including:</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-lg bg-neutral-50">
+                                <h4 class="font-semibold text-neutral-900 mb-2">Personal Information</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mr-2 mt-1 text-xs"></i>
+                                        <span>Full name and contact details</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mr-2 mt-1 text-xs"></i>
+                                        <span>Date of birth and identification</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mr-2 mt-1 text-xs"></i>
+                                        <span>Emergency contact information</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 rounded-lg bg-neutral-50">
+                                <h4 class="font-semibold text-neutral-900 mb-2">Clinical Information</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary mr-2 mt-1 text-xs"></i>
+                                        <span>Medical and psychological history</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary mr-2 mt-1 text-xs"></i>
+                                        <span>Assessment results and progress notes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary mr-2 mt-1 text-xs"></i>
+                                        <span>Treatment plans and session records</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">2. How We Use Your Information</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-4">
+                        <p>Your information is used solely for the purpose of providing psychological services and maintaining professional standards:</p>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-stethoscope text-primary text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Clinical Care</h4>
+                                <p class="text-sm text-neutral-500">To provide evidence-based psychological assessment and treatment</p>
+                            </div>
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-file-invoice-dollar text-secondary text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Administration</h4>
+                                <p class="text-sm text-neutral-500">For appointment scheduling, billing, and insurance processing</p>
+                            </div>
+                            <div class="text-center p-4">
+                                <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-chart-line text-accent text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-neutral-900 mb-2">Quality Improvement</h4>
+                                <p class="text-sm text-neutral-500">To evaluate and enhance our services while maintaining anonymity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-handshake text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">3. Confidentiality & Disclosure</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-4">
+                        <div class="privacy-highlight p-6 rounded-lg">
+                            <h4 class="font-semibold text-neutral-900 mb-3"><i class="fas fa-star text-gold mr-2"></i> The Therapeutic Relationship</h4>
+                            <p>All information shared during therapy sessions is confidential. We do not disclose any information without your written consent, except in specific circumstances required by law or professional ethics.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Exceptions to Confidentiality</h4>
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-lg border border-neutral-200">
+                                    <h5 class="font-semibold text-neutral-800 mb-2 flex items-center">
+                                        <i class="fas fa-exclamation-triangle text-accent mr-2"></i>
+                                        Legal Requirements
+                                    </h5>
+                                    <p class="text-sm text-neutral-600">When required by law, such as court orders or mandatory reporting of abuse or neglect</p>
+                                </div>
+                                <div class="p-4 rounded-lg border border-neutral-200">
+                                    <h5 class="font-semibold text-neutral-800 mb-2 flex items-center">
+                                        <i class="fas fa-user-injured text-primary mr-2"></i>
+                                        Risk of Harm
+                                    </h5>
+                                    <p class="text-sm text-neutral-600">If there is imminent risk of harm to yourself or others, we may need to take protective action</p>
+                                </div>
+                                <div class="p-4 rounded-lg border border-neutral-200">
+                                    <h5 class="font-semibold text-neutral-800 mb-2 flex items-center">
+                                        <i class="fas fa-file-medical text-secondary mr-2"></i>
+                                        Professional Consultation
+                                    </h5>
+                                    <p class="text-sm text-neutral-600">We may consult with other professionals while maintaining your anonymity for quality care</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">4. Data Security</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-6">
+                        <p>We implement comprehensive security measures to protect your information:</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="p-4 rounded-lg bg-gradient-to-br from-primary/5 to-transparent">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-lock text-primary mr-2"></i>
+                                    Physical Security
+                                </h4>
+                                <ul class="text-sm space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                        <span>Secure, locked filing systems for paper records</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                        <span>Restricted access to clinical areas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                        <span>Secure document disposal procedures</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-gradient-to-br from-secondary/5 to-transparent">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-key text-secondary mr-2"></i>
+                                    Digital Security
+                                </h4>
+                                <ul class="text-sm space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                        <span>Encrypted electronic health records</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                        <span>Secure, password-protected systems</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                        <span>Regular security audits and updates</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Retention Period</h4>
+                            <p class="text-sm text-neutral-600">
+                                We retain clinical records for a minimum of 7 years after the last contact, or longer as required by professional regulations and legal requirements. After this period, records are securely destroyed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-check text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">5. Your Rights</h3>
+                    </div>
+                    <div class="text-neutral-600">
+                        <p>You have the following rights regarding your personal information:</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-eye text-primary mr-2"></i>
+                                    Right to Access
+                                </h4>
+                                <p class="text-sm text-neutral-600">You may request to see the information we hold about you, with some clinical exceptions.</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-edit text-primary mr-2"></i>
+                                    Right to Correction
+                                </h4>
+                                <p class="text-sm text-neutral-600">You may request corrections to inaccurate or incomplete information.</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-ban text-primary mr-2"></i>
+                                    Right to Object
+                                </h4>
+                                <p class="text-sm text-neutral-600">You may object to certain uses of your information.</p>
+                            </div>
+                            
+                            <div class="p-4 rounded-lg bg-white border border-neutral-200">
+                                <h4 class="font-semibold text-neutral-900 mb-3 flex items-center">
+                                    <i class="fas fa-file-export text-primary mr-2"></i>
+                                    Data Portability
+                                </h4>
+                                <p class="text-sm text-neutral-600">Where applicable, you may request transfer of your information to another provider.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="section-card rounded-xl p-6 mb-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-globe text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">6. Website & Online Privacy</h3>
+                    </div>
+                    <div class="text-neutral-600 space-y-6">
+                        <div>
+                            <h4 class="font-semibold text-neutral-900 mb-3">Website Analytics</h4>
+                            <p>We use Google Analytics to understand how visitors use our website. This service collects anonymous data such as:</p>
+                            <div class="grid md:grid-cols-3 gap-4 mt-4">
+                                <div class="text-center p-3 rounded-lg bg-neutral-50">
+                                    <div class="text-primary text-lg font-bold">✓</div>
+                                    <p class="text-xs mt-2">Pages visited</p>
+                                </div>
+                                <div class="text-center p-3 rounded-lg bg-neutral-50">
+                                    <div class="text-primary text-lg font-bold">✓</div>
+                                    <p class="text-xs mt-2">Time on site</p>
+                                </div>
+                                <div class="text-center p-3 rounded-lg bg-neutral-50">
+                                    <div class="text-primary text-lg font-bold">✓</div>
+                                    <p class="text-xs mt-2">Device information</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-neutral-500 mt-4">No personally identifiable information is collected through analytics.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-neutral-900 mb-3">Contact Forms</h4>
+                            <p>Information submitted through our contact forms is used solely to respond to your inquiries and is protected by the same confidentiality standards as clinical information.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-neutral-900 mb-3">Cookies</h4>
+                            <p>Our website uses essential cookies for functionality. You may adjust your browser settings to manage cookie preferences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="section-card rounded-xl p-6 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-phone-alt text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-tiempos text-neutral-900">7. Contact & Complaints</h3>
+                    </div>
+                    <div class="text-neutral-600">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Contact Our Privacy Officer</h4>
+                                <div class="space-y-3">
+                                    <p class="flex items-start">
+                                        <i class="fas fa-user-tie text-primary mr-3 mt-1"></i>
+                                        <span>Privacy Officer: Evon Caroline</span>
+                                    </p>
+                                    <p class="flex items-start">
+                                        <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
+                                        <span>Email: privacy@zenarapsych.com</span>
+                                    </p>
+                                    <p class="flex items-start">
+                                        <i class="fas fa-phone text-primary mr-3 mt-1"></i>
+                                        <span>Phone: +254 115 277 559</span>
+                                    </p>
+                                    <p class="flex items-start">
+                                        <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                                        <span>Address: Nairobi, Kenya 00100</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-neutral-900 mb-3">Making a Complaint</h4>
+                                <p>If you have concerns about how we handle your information, please contact our Privacy Officer. If unsatisfied, you may contact:</p>
+                                <div class="mt-4 p-4 rounded-lg bg-neutral-50">
+                                    <p class="text-sm font-semibold">Kenya Psychological Association (KPsyA)</p>
+                                    <p class="text-xs text-neutral-500 mt-1">Professional standards and ethics body</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-neutral-900 mb-3">Policy Updates</h4>
+                            <p class="text-sm text-neutral-600">
+                                We regularly review and update this policy to ensure compliance with changing regulations and best practices. 
+                                Significant changes will be communicated through our website or directly to current clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Note -->
+                <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 fade-in">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-heart text-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-tiempos text-neutral-900 mb-2">Our Commitment to You</h4>
+                            <p class="text-neutral-600">
+                                At Zenara Psychological Services, your trust is our highest priority. We are committed to maintaining 
+                                the confidentiality and security of your information while providing the highest standard of psychological care. 
+                                Thank you for entrusting us with your mental health journey.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl font-tiempos text-neutral-900 mb-6">Questions About Your <span class="gradient-text">Privacy</span>?</h3>
+            <p class="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+                We're here to help. Contact us for any questions about how we protect your information or to exercise your privacy rights.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-primary text-white px-8 py-3 rounded-full text-lg font-medium">
+                    <i class="fas fa-envelope mr-2"></i> Contact Us
+                </a>
+                <a href="about.html" class="btn-secondary px-8 py-3 rounded-full text-lg font-medium">
+                    <i class="fas fa-users mr-2"></i> Meet Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <!-- Footer logo -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-40 h-12 sm:w-48 sm:h-14 md:w-56 md:h-16 flex items-center">
+                            <img 
+                                src="./resources/zenara-logo.png" 
+                                alt="Zenara Psychological Services" 
+                                class="w-full h-auto object-contain"
+                            >
+                        </div>
+                    </div>
+                    <p class="text-white/70 mb-6 max-w-md">
+                        At Zenara Psychological Service, we believe mental well-being is essential to a balanced and fulfilling life.
+                    We provide compassionate, ethical, and evidence-based psychological care in a safe and non-judgemental space, empowering
+                    individuals to achieve emotional clarity, inner calm and lasting personal growth.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-white/70">
+                            <p class="font-semibold text-white">Crisis Hotline:</p>
+                            <p class="text-secondary">Redcross (1199)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="index.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Home</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Services</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> About</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-primary transition-colors flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-primary"></i> Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+                    <div class="space-y-3 text-white/70">
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt text-primary mr-3"></i> Nairobi, Kenya 00100</p>
+                        <p class="flex items-center"><i class="fas fa-phone text-primary mr-3"></i> Phone: +254 115 277 559</p>
+                        <p class="flex items-center"><i class="fas fa-envelope text-primary mr-3"></i> Email: info@zenarapsych.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p>&copy; 2026 Zenara Psychological Services. All rights reserved.</p>
+                <p class="text-sm mt-2">This privacy policy complies with professional psychology ethics and relevant data protection guidelines.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Initial check
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Add hover effects for policy cards
+            const sectionCards = document.querySelectorAll('.section-card');
+            sectionCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add subtle animation to policy highlights
+            const privacyHighlights = document.querySelectorAll('.privacy-highlight');
+            privacyHighlights.forEach(highlight => {
+                highlight.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.01)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                highlight.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Print-friendly functionality
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print mr-2"></i> Print Policy';
+            printButton.className = 'fixed bottom-8 right-8 bg-primary text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 hidden md:flex items-center';
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
